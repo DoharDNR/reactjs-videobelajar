@@ -1,4 +1,4 @@
-import Header from "./component/Header";
+import Beranda from "./halaman/beranda";
 import VideoCollection from "./halaman/beranda";
 import Login from "./halaman/Login";
 import Register from "./halaman/Register";
@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<VideoCollection />} />
+        <Route path="/" element={<Beranda />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

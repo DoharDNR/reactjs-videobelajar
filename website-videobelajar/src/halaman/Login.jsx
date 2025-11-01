@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import Header from "../component/Header";
 
-const Login = () => {
+export default function Login() {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -117,6 +117,4 @@ const Login = () => {
       </div>
     </>
   );
-};
-
-export default Login;
+}

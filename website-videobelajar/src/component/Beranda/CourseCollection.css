@@ -1,0 +1,16 @@
+.tab-button {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tab-button:hover {
+  color: #ffc107;
+}
+
+.tab-underline {
+  transition: all 0.3s ease;
+}
+
+.text-success-update{
+  color: #3ECF4C;
+}

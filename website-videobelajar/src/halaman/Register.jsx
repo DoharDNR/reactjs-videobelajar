@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import Header from "../component/Header";
 
-const RegisterPage = () => {
+export default function RegisterPage() {
   const [form, setForm] = useState({
     fullname: "",
     email: "",
@@ -179,6 +179,4 @@ const RegisterPage = () => {
       </div>
     </>
   );
-};
-
-export default RegisterPage;
+}

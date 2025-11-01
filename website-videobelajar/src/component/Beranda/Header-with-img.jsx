@@ -1,7 +1,7 @@
-import Avatar from "../assets/Avatar.svg";
-import Gambar from "../assets/videobelajar1.svg";
+import Avatar from "../../assets/Avatar.svg";
+import Gambar from "../../assets/videobelajar1.svg";
 
-const NavbarImg = () => {
+export default function NavbarImg() {
   return (
     <nav className="navbar navbar-light bg-white shadow-sm px-4 py-3">
       <div className="container-fluid d-flex justify-content-between align-items-center">
@@ -17,6 +17,4 @@ const NavbarImg = () => {
       </div>
     </nav>
   );
-};
-
-export default NavbarImg;
+}

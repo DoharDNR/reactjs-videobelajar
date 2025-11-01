@@ -1,8 +1,13 @@
-// import banner from "../assets/banner.jpg"
-import NavbarImg from "../component/Header-with-img";
+import CourseCollection from "../component/Beranda/CourseCollection";
+import NavbarImg from "../component/Beranda/Header-with-img";
+import HeroSection from "../component/Beranda/HeroSection";
 
 export default function Beranda() {
   return (
-    <NavbarImg />
+    <>
+      <NavbarImg />
+      <HeroSection />
+      <CourseCollection />
+    </>
   );
 }
