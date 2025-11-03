@@ -1,14 +1,8 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Beranda from "./halaman/beranda";
-import VideoCollection from "./halaman/beranda";
 import Login from "./halaman/Login";
 import Register from "./halaman/Register";
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import StarRating from "./component/StarRating";
 
 function App() {
   return (
@@ -17,6 +11,7 @@ function App() {
         <Route path="/" element={<Beranda />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/test" element={<StarRating score={3} />} />
       </Routes>
     </Router>
   );

@@ -1,3 +1,9 @@
 body{
     background-color: #FFFDF3;
 }
+
+@media(max-width: 992px) {
+    .display-off{
+        display: none;
+    }
+}

@@ -18,12 +18,9 @@ export default function Newsletter() {
             filter: "brightness(20%)",
           }}
         />
-        <div
-          className="position-absolute top-50 start-50 translate-middle text-center text-white px-3"
-          style={{ width: "60%" }}
-        >
+        <div className="position-absolute top-50 start-50 translate-middle text-center text-white px-5">
           <p className="text-uppercase opacity-50 mb-2">Newsletter</p>
-          <h4 className="fw-bold fs-1">Mau Belajar Lebih Banyak?</h4>
+          <h1 className="fw-bold fs-2">Mau Belajar Lebih Banyak?</h1>
           <p className="mb-4 opacity-50">
             Daftarkan dirimu untuk mendapatkan informasi terbaru dan penawaran
             spesial dari program-program terbaik hariesok.id

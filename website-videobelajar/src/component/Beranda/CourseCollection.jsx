@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./CourseCollection.css";
 import { videos } from "./DaftarKonten";
+import RatingStars from "../StarRating";
 
 export default function VideoCollection() {
   const tabs = [
@@ -36,7 +37,14 @@ export default function VideoCollection() {
       </p>
 
       <div className="position-relative mb-4 border-bottom">
-        <div className="d-flex flex-wrap gap-4 position-relative">
+        <div
+          className="d-flex flex-nowrap gap-4 position-relative tab-slider"
+          style={{
+            overflowX: "auto",
+            scrollbarWidth: "none", // Firefox
+            WebkitOverflowScrolling: "touch",
+          }}
+        >
           {tabs.map((tab, index) => (
             <button
               key={tab}
@@ -53,12 +61,15 @@ export default function VideoCollection() {
                 outline: "none",
                 cursor: "pointer",
                 fontSize: "1rem",
+                whiteSpace: "nowrap",
               }}
             >
               {tab}
             </button>
           ))}
         </div>
+
+        {/* Garis aktif */}
         <div
           className="tab-underline"
           style={{
@@ -101,9 +112,11 @@ export default function VideoCollection() {
                   </div>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
-                  <span className="text-warning small">
-                    ⭐ {video.rating.toFixed(1)}
-                  </span>
+                  <div className="d-flex gap-1 align-items-center">
+                    <RatingStars score={3} />
+                    <span className="text-muted small">{video.rating}</span>
+                    <span className="text-muted small">{"(86)"}</span>
+                  </div>
                   <span className="fw-bold text-success-update">
                     {video.price}
                   </span>

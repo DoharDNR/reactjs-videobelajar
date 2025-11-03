@@ -11,6 +11,28 @@
   transition: all 0.3s ease;
 }
 
-.text-success-update{
-  color: #3ECF4C;
+.text-success-update {
+  color: #3ecf4c;
+}
+
+@media (max-width: 990px) {
+  /* Hilangkan scrollbar di mobile */
+  .tab-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+  }
+
+  .tab-button {
+    scroll-snap-align: start;
+    transition: color 0.3s ease;
+  }
+
+  .tab-button:hover {
+    color: #ffc107;
+  }
 }

@@ -21,7 +21,7 @@ export default function HeroSection() {
           className="position-absolute top-50 start-50 translate-middle text-center text-white px-3"
           style={{ width: "80%" }}
         >
-          <h1 className="fw-bold fs-1 mb-3">
+          <h1 className="fw-bold fs-2 mb-3">
             Revolusi Pembelajaran: Temukan Ilmu Baru melalui Platform Video
             Interaktif!
           </h1>
