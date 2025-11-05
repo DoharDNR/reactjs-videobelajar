@@ -1,0 +1,19 @@
+.border-success-update{
+    background-color: #E2FCD9CC;
+    border-color: #3ecf4c;
+}
+
+.custom-flex{
+    display: flex;
+    gap: 3rem;
+}
+
+@media(max-width: 992px){
+    .custom-flex{
+        display: block;
+    }
+
+    .card{
+        margin-bottom: 2rem;
+    }
+}
