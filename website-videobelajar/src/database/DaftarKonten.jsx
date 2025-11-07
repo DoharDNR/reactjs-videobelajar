@@ -1,27 +1,27 @@
-// import banner from "./img-resource/banner-produk1.jpg";
-
+const locationSrc = "/src/assets";
+//Database-Line
 const imgBanner = [
-  "/src/component/Beranda/img-resource/banner-produk1.jpg",
-  "/src/component/Beranda/img-resource/banner-produk2.jpg",
-  "/src/component/Beranda/img-resource/banner-produk3.jpg",
-  "/src/component/Beranda/img-resource/banner-produk4.jpg",
-  "/src/component/Beranda/img-resource/banner-produk5.jpg",
-  "/src/component/Beranda/img-resource/banner-produk6.jpg",
-  "/src/component/Beranda/img-resource/banner-produk7.jpg",
-  "/src/component/Beranda/img-resource/banner-produk8.jpg",
-  "/src/component/Beranda/img-resource/banner-produk9.jpg",
+  `${locationSrc}/img-resource/banner-produk1.jpg`,
+  `${locationSrc}/img-resource/banner-produk2.jpg`,
+  `${locationSrc}/img-resource/banner-produk3.jpg`,
+  `${locationSrc}/img-resource/banner-produk4.jpg`,
+  `${locationSrc}/img-resource/banner-produk5.jpg`,
+  `${locationSrc}/img-resource/banner-produk6.jpg`,
+  `${locationSrc}/img-resource/banner-produk7.jpg`,
+  `${locationSrc}/img-resource/banner-produk8.jpg`,
+  `${locationSrc}/img-resource/banner-produk9.jpg`,
 ];
 
 const imgCustomer = [
-  "/src/component/Beranda/img-resource/customer1.png",
-  "/src/component/Beranda/img-resource/customer2.png",
-  "/src/component/Beranda/img-resource/customer3.png",
-  "/src/component/Beranda/img-resource/customer4.png",
-  "/src/component/Beranda/img-resource/customer5.png",
-  "/src/component/Beranda/img-resource/customer6.png",
-  "/src/component/Beranda/img-resource/customer7.png",
-  "/src/component/Beranda/img-resource/customer8.png",
-  "/src/component/Beranda/img-resource/customer9.png",
+  `${locationSrc}/img-resource/customer1.png`,
+  `${locationSrc}/img-resource/customer2.png`,
+  `${locationSrc}/img-resource/customer3.png`,
+  `${locationSrc}/img-resource/customer4.png`,
+  `${locationSrc}/img-resource/customer5.png`,
+  `${locationSrc}/img-resource/customer6.png`,
+  `${locationSrc}/img-resource/customer7.png`,
+  `${locationSrc}/img-resource/customer8.png`,
+  `${locationSrc}/img-resource/customer9.png`,
 ];
 
 export const videos = [
@@ -93,37 +93,5 @@ export const videos = [
     price: "Rp 240K",
     rating: 4.3,
   },
-  {
-    id: 7,
-    banner: imgBanner[6],
-    title: "Big 4 Auditor Financial Analyst",
-    img: imgCustomer[6],
-    instructor: "Jenna Ortega",
-    role: "Senior Accountant at Gojek",
-    category: "Pengembangan Diri",
-    price: "Rp 200K",
-    rating: 4.6,
-  },
-  {
-    id: 8,
-    banner: imgBanner[7],
-    title: "Big 4 Auditor Financial Analyst",
-    img: imgCustomer[7],
-    instructor: "Jenna Ortega",
-    role: "Senior Accountant at Gojek",
-    category: "Pengembangan Diri",
-    price: "Rp 220K",
-    rating: 4.7,
-  },
-  {
-    id: 9,
-    banner: imgBanner[8],
-    title: "Big 4 Auditor Financial Analyst",
-    img: imgCustomer[8],
-    instructor: "Jenna Ortega",
-    role: "Senior Accountant at Gojek",
-    category: "Pengembangan Diri",
-    price: "Rp 220K",
-    rating: 4.7,
-  },
 ];
+//Database-Line

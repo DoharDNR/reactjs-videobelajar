@@ -2,6 +2,10 @@ body{
     background-color: #FFFDF3;
 }
 
+.text-gray{
+    color: #C1C2C4;
+}
+
 @media(max-width: 992px) {
     .display-off{
         display: none;

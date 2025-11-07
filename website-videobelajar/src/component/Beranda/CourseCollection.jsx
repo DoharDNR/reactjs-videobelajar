@@ -5,27 +5,27 @@ import RatingStars from "./StarRating";
 export default function VideoCollection() {
   // Database-Line
   const imgBanner = [
-    "/src/component/Beranda/img-resource/banner-produk1.jpg",
-    "/src/component/Beranda/img-resource/banner-produk2.jpg",
-    "/src/component/Beranda/img-resource/banner-produk3.jpg",
-    "/src/component/Beranda/img-resource/banner-produk4.jpg",
-    "/src/component/Beranda/img-resource/banner-produk5.jpg",
-    "/src/component/Beranda/img-resource/banner-produk6.jpg",
-    "/src/component/Beranda/img-resource/banner-produk7.jpg",
-    "/src/component/Beranda/img-resource/banner-produk8.jpg",
-    "/src/component/Beranda/img-resource/banner-produk9.jpg",
+    "/src/assets/img-resource/banner-produk1.jpg",
+    "/src/assets/img-resource/banner-produk2.jpg",
+    "/src/assets/img-resource/banner-produk3.jpg",
+    "/src/assets/img-resource/banner-produk4.jpg",
+    "/src/assets/img-resource/banner-produk5.jpg",
+    "/src/assets/img-resource/banner-produk6.jpg",
+    "/src/assets/img-resource/banner-produk7.jpg",
+    "/src/assets/img-resource/banner-produk8.jpg",
+    "/src/assets/img-resource/banner-produk9.jpg",
   ];
 
   const imgCustomer = [
-    "/src/component/Beranda/img-resource/customer1.png",
-    "/src/component/Beranda/img-resource/customer2.png",
-    "/src/component/Beranda/img-resource/customer3.png",
-    "/src/component/Beranda/img-resource/customer4.png",
-    "/src/component/Beranda/img-resource/customer5.png",
-    "/src/component/Beranda/img-resource/customer6.png",
-    "/src/component/Beranda/img-resource/customer7.png",
-    "/src/component/Beranda/img-resource/customer8.png",
-    "/src/component/Beranda/img-resource/customer9.png",
+    "/src/assets/img-resource/customer1.png",
+    "/src/assets/img-resource/customer2.png",
+    "/src/assets/img-resource/customer3.png",
+    "/src/assets/img-resource/customer4.png",
+    "/src/assets/img-resource/customer5.png",
+    "/src/assets/img-resource/customer6.png",
+    "/src/assets/img-resource/customer7.png",
+    "/src/assets/img-resource/customer8.png",
+    "/src/assets/img-resource/customer9.png",
   ];
 
   const videos = [
@@ -227,7 +227,8 @@ export default function VideoCollection() {
               <div className="card-body">
                 <h6 className="fw-bold">{video.title}</h6>
                 <p className="text-muted small">
-                  Belajar dari instruktur profesional dengan harga terjangkau.
+                  Mulai transformasi dengan instruktur profesional, harga yang
+                  terjangkau, dan...
                 </p>
                 <div className="d-flex align-items-center mb-2">
                   <img

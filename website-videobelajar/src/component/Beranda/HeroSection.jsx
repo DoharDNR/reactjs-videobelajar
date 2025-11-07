@@ -30,7 +30,10 @@ export default function HeroSection() {
             pembelajaran berkualitas tinggi. Anda juga dapat berpartisipasi
             dalam latihan interaktif yang akan meningkatkan pemahaman Anda.
           </p>
-          <button className="btn btn-login px-4 py-2">
+          <button
+            className="btn btn-login px-4 py-2"
+            style={{ backgroundColor: "#3ECF4C", color: "#fff" }}
+          >
             Temukan Video Course untuk Dipelajari!
           </button>
         </div>

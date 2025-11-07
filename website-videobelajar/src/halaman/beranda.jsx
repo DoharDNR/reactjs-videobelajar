@@ -1,5 +1,5 @@
 import CourseCollection from "../component/Beranda/CourseCollection";
-import NavbarImg from "../component/Beranda/HeaderLogin";
+import Header from "../component/Header";
 import HeroSection from "../component/Beranda/HeroSection";
 import Newsletter from "../component/Beranda/Newsletter";
 import Footer from "../component/Footer";
@@ -7,7 +7,7 @@ import Footer from "../component/Footer";
 export default function Beranda() {
   return (
     <>
-      <NavbarImg />
+      <Header color="#333" />
       <HeroSection />
       <CourseCollection />
       <Newsletter />

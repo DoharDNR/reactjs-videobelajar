@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
 import Header from "../component/Header";
 
 export default function RegisterPage() {
@@ -42,9 +41,12 @@ export default function RegisterPage() {
 
   return (
     <>
-      <Header />
+      <Header logout="none" />
       <div className="p-5 min-vh-100 d-flex flex-column justify-content-center align-items-center">
-        <div className="card shadow-sm p-4 card-mobile">
+        <div
+          className="card shadow-sm p-4"
+          style={{ maxWidth: "590px", width: "100%" }}
+        >
           <h5 className="text-center fw-bold mb-1">Pendaftaran Akun</h5>
           <p className="text-center text-muted small">
             Yuk, daftarkan akunmu sekarang juga!
@@ -143,14 +145,19 @@ export default function RegisterPage() {
               </a>
             </div>
 
-            <button type="submit" className="btn btn-login w-100 mb-2">
+            <button
+              type="submit"
+              className="btn w-100 mb-2"
+              style={{ backgroundColor: "#3ECF4C", color: "#fff" }}
+            >
               Daftar
             </button>
 
             <button
               type="button"
               onClick={handleLogin}
-              className="btn btn-register w-100 border mb-2"
+              className="btn w-100 border mb-2"
+              style={{ backgroundColor: "#E2FCD9CC", color: "#3ECF4C" }}
             >
               Masuk
             </button>

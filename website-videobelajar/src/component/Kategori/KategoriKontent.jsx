@@ -1,105 +1,9 @@
 // import React, { useState, useRef, useEffect } from "react";
 import RatingStars from "../Beranda/StarRating";
 import FilterPage from "./FilterPage";
+import { videos } from "../../database/DaftarKonten";
 
 export default function KategoriKonten() {
-  //Database-Line
-  const imgBanner = [
-    "/src/component/Beranda/img-resource/banner-produk1.jpg",
-    "/src/component/Beranda/img-resource/banner-produk2.jpg",
-    "/src/component/Beranda/img-resource/banner-produk3.jpg",
-    "/src/component/Beranda/img-resource/banner-produk4.jpg",
-    "/src/component/Beranda/img-resource/banner-produk5.jpg",
-    "/src/component/Beranda/img-resource/banner-produk6.jpg",
-    "/src/component/Beranda/img-resource/banner-produk7.jpg",
-    "/src/component/Beranda/img-resource/banner-produk8.jpg",
-    "/src/component/Beranda/img-resource/banner-produk9.jpg",
-  ];
-
-  const imgCustomer = [
-    "/src/component/Beranda/img-resource/customer1.png",
-    "/src/component/Beranda/img-resource/customer2.png",
-    "/src/component/Beranda/img-resource/customer3.png",
-    "/src/component/Beranda/img-resource/customer4.png",
-    "/src/component/Beranda/img-resource/customer5.png",
-    "/src/component/Beranda/img-resource/customer6.png",
-    "/src/component/Beranda/img-resource/customer7.png",
-    "/src/component/Beranda/img-resource/customer8.png",
-    "/src/component/Beranda/img-resource/customer9.png",
-  ];
-
-  const videos = [
-    {
-      id: 1,
-      banner: imgBanner[0],
-      title: "Big 4 Auditor Financial Analyst",
-      describe:
-        "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik",
-      img: imgCustomer[0],
-      instructor: "Jenna Ortega",
-      role: "Senior Accountant at Gojek",
-      category: "Bisnis",
-      price: "Rp 300K",
-      rating: 3.5,
-    },
-    {
-      id: 2,
-      banner: imgBanner[1],
-      title: "Big 4 Auditor Financial Analyst",
-      img: imgCustomer[1],
-      instructor: "Jenna Ortega",
-      role: "Senior Accountant at Gojek",
-      category: "Bisnis",
-      price: "Rp 350K",
-      rating: 4.0,
-    },
-    {
-      id: 3,
-      banner: imgBanner[2],
-      title: "Big 4 Auditor Financial Analyst",
-      img: imgCustomer[2],
-      instructor: "Jenna Ortega",
-      role: "Senior Accountant at Gojek",
-      category: "Pemasaran",
-      price: "Rp 250K",
-      rating: 4.2,
-    },
-    {
-      id: 4,
-      banner: imgBanner[3],
-      title: "Big 4 Auditor Financial Analyst",
-      img: imgCustomer[3],
-      instructor: "Jenna Ortega",
-      role: "Senior Accountant at Gojek",
-      category: "Pemasaran",
-      price: "Rp 270K",
-      rating: 4.1,
-    },
-    {
-      id: 5,
-      banner: imgBanner[4],
-      title: "Big 4 Auditor Financial Analyst",
-      img: imgCustomer[4],
-      instructor: "Jenna Ortega",
-      role: "Senior Accountant at Gojek",
-      category: "Desain",
-      price: "Rp 280K",
-      rating: 4.5,
-    },
-    {
-      id: 6,
-      banner: imgBanner[5],
-      title: "Big 4 Auditor Financial Analyst",
-      img: imgCustomer[5],
-      instructor: "Jenna Ortega",
-      role: "Senior Accountant at Gojek",
-      category: "Desain",
-      price: "Rp 240K",
-      rating: 4.3,
-    },
-  ];
-  //Database-Line
-
   return (
     <section className="container p-5">
       <h4 className="fw-bold mb-1">Koleksi Video Pembelajaran Unggulan</h4>
@@ -108,10 +12,7 @@ export default function KategoriKonten() {
       </p>
 
       <div className="custom-flex">
-        <div
-          className="card p-3 gap-3 w-100"
-          style={{ width: "95%", height: "100%" }}
-        >
+        <div className="card p-3 gap-3 w-100" style={{ height: "100%" }}>
           <FilterPage />
         </div>
         <div>
@@ -194,8 +95,8 @@ export default function KategoriKonten() {
                   <div className="card-body">
                     <h6 className="fw-bold">{video.title}</h6>
                     <p className="text-muted small">
-                      Belajar dari instruktur profesional dengan harga
-                      terjangkau.
+                      Mulai transformasi dengan instruktur profesional, harga
+                      yang terjangkau, dan...
                     </p>
                     <div className="d-flex align-items-center mb-2">
                       <img

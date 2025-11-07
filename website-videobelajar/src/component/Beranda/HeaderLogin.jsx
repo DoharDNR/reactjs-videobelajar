@@ -5,8 +5,8 @@ import { useState } from "react";
 export default function NavbarImg() {
   const [openMenu, setOpenMenu] = useState(false);
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm w-100">
-      <div className="container-fluid p-3 px-3">
+    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div className="container-fluid p-3 px-3" style={{ width: "92%" }}>
         <a href="/" className="navbar-brand px-1">
           <img src={Gambar} alt="" />
         </a>

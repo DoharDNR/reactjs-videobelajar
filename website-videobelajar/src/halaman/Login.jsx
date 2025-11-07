@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
 import Header from "../component/Header";
 
 export default function Login() {
@@ -38,9 +37,12 @@ export default function Login() {
 
   return (
     <>
-      <Header />
+      <Header logout="none" />
       <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center">
-        <div className="card shadow-sm p-4 card-mobile">
+        <div
+          className="card shadow-sm p-4 card-mobile"
+          style={{ width: "90%", maxWidth: "590px" }}
+        >
           <h5 className="text-center fw-bold mb-1">Masuk Akun</h5>
           <p className="text-center text-muted small">
             Yuk, lanjutin belajarmu di videobelajar.
@@ -81,14 +83,19 @@ export default function Login() {
               </a>
             </div>
 
-            <button type="submit" className="btn btn-login w-100 mb-2">
+            <button
+              type="submit"
+              className="btn w-100 mb-2"
+              style={{ backgroundColor: "#3ECF4C", color: "#fff" }}
+            >
               Masuk
             </button>
 
             <button
               type="button"
               onClick={handleRegister}
-              className="btn btn-register w-100 border mb-2"
+              className="btn w-100 border mb-2"
+              style={{ backgroundColor: "#E2FCD9CC", color: "#3ECF4C" }}
             >
               Daftar
             </button>
