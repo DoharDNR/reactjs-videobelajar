@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../component/Header";
+import Header from "../component/HeaderNav";
 
 export default function Login() {
   const [form, setForm] = useState({

@@ -8,6 +8,8 @@ import DetailProduct from "./halaman/DetailProduct";
 import PaymentMethod from "./halaman/PaymentMetode";
 import PaymentGateway from "./halaman/PaymentGateway";
 import PaymentChange from "./halaman/PaymentChange";
+import PaymentSuccess from "./halaman/PaymentSuccess";
+import Pesanan from "./halaman/Profile";
 
 function App() {
   return (
@@ -18,18 +20,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/test" element={<FilterPage />} />
         <Route path="/kategori" element={<Kategori />} />
-
-        {/* 2 page per hari 2 */}
         <Route path="/detail-product" element={<DetailProduct />} />
-        <Route path="/payment-metode" element={<PaymentMethod />} />
-
-        {/* 2 page per hari 3 */}
+        <Route path="/payment-method" element={<PaymentMethod />} />
         <Route path="/payment-gateway" element={<PaymentGateway />} />
         <Route path="/payment-change" element={<PaymentChange />} />
-
-        {/* 2 page per hari 4 */}
-        <Route path="/payment-done" element={<Kategori />} />
-        <Route path="/order" element={<Kategori />} />
+        <Route path="/payment-done" element={<PaymentSuccess />} />
+        <Route path="/profil" element={<Pesanan />} />
 
         {/* 2 page per hari 5 */}
         <Route path="/class" element={<Kategori />} />

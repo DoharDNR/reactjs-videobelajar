@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function FilterSection({
   icon,
   title,
+  titleColor,
   children,
   defaultOpen = true,
 }) {
@@ -17,7 +18,9 @@ export default function FilterSection({
       >
         <div className="d-flex gap-2">
           <img src={icon} alt="" />
-          <h6 className="fw-semibold text-success-update m-0">{title}</h6>
+          <h6 className="fw-semibold m-0" style={{ color: titleColor }}>
+            {title}
+          </h6>
         </div>
         <i className={`bi bi-chevron-${open ? "up" : "down"} text-success`}></i>
       </div>

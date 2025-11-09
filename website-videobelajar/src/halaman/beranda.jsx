@@ -1,5 +1,5 @@
 import CourseCollection from "../component/Beranda/CourseCollection";
-import Header from "../component/Header";
+import Header from "../component/HeaderNav";
 import HeroSection from "../component/Beranda/HeroSection";
 import Newsletter from "../component/Beranda/Newsletter";
 import Footer from "../component/Footer";

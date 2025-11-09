@@ -2,7 +2,7 @@ import Avatar from "../assets/Avatar.svg";
 import Gambar from "../assets/videobelajar1.svg";
 import { useState } from "react";
 
-const NavbarLogin = ({ color, logout }) => {
+const HeaderNav = ({ color, logout, payment }) => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm w-100">
@@ -10,7 +10,7 @@ const NavbarLogin = ({ color, logout }) => {
         <a href="#" className="navbar-brand px-1">
           <img src={Gambar} alt="" />
         </a>
-        <div style={{ display: logout }}>
+        <div style={{ display: logout || payment }}>
           <div className="d-none d-md-flex align-items-center">
             <a
               href="#kategori"
@@ -67,4 +67,4 @@ const NavbarLogin = ({ color, logout }) => {
   );
 };
 
-export default NavbarLogin;
+export default HeaderNav;

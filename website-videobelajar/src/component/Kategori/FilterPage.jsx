@@ -26,7 +26,7 @@ export default function FilterPage() {
         </button>
       </div>
 
-      <FilterSection icon={File} title="Bidang Studi">
+      <FilterSection icon={File} title="Bidang Studi" titleColor={"#3ecf4c"}>
         {[
           "Pemasaran",
           "Digital & Teknologi",
@@ -45,7 +45,7 @@ export default function FilterPage() {
         ))}
       </FilterSection>
 
-      <FilterSection icon={Interface} title="Harga">
+      <FilterSection icon={Interface} title="Harga" titleColor={"#3ecf4c"}>
         {["Gratis", "Berbayar"].map((item) => (
           <div className="form-check mb-2" key={item}>
             <input
@@ -59,7 +59,7 @@ export default function FilterPage() {
         ))}
       </FilterSection>
 
-      <FilterSection icon={Calender} title="Durasi">
+      <FilterSection icon={Calender} title="Durasi" titleColor={"#3ecf4c"}>
         {["Kurang dari 4 Jam", "4 – 8 Jam", "Lebih dari 8 Jam"].map((item) => (
           <div className="form-check mb-2" key={item}>
             <input

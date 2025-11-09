@@ -1,0 +1,10 @@
+.payment-method-mobile{
+    display: flex;
+    gap: 1rem;
+}
+
+@media (max-width: 990px) {
+  .payment-method-mobile {
+    flex-direction: column;
+  }
+}

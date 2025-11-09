@@ -1,4 +1,4 @@
-import Header from "../component/Header";
+import Header from "../component/HeaderNav";
 import KategoriKonten from "../component/Kategori/KategoriKontent";
 import Footer from "../component/Footer";
 
