@@ -1,6 +1,6 @@
 export default function DetailProductCard() {
   return (
-    <div className="card gap-3 p-4 h-100 m-0">
+    <div className="card gap-3 p-4 h-100">
       <div className="w-100">
         <h5>
           Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product

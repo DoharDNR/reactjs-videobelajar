@@ -17,8 +17,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/beranda" element={<Beranda />} />
-        <Route path="/kategori" element={<Kategori />} />
+        <Route path="/home" element={<Beranda />} />
+        <Route path="/category" element={<Kategori />} />
         <Route path="/product" element={<DetailProduct />} />
         <Route path="/payment-method" element={<PaymentMethod />} />
         <Route path="/payment-gateway" element={<PaymentGateway />} />

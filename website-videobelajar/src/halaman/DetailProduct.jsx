@@ -4,7 +4,7 @@ import { videos } from "../database/DaftarKonten";
 import StarRating from "../component/Beranda/StarRating";
 import HeaderNav from "../component/HeaderNav";
 import Footer from "../component/Footer";
-import DetailProductCard from "../component/DetailProduct/DetailProductCard";
+import DetailProductCard from "../component/DetailProductCard";
 import DetailProductMentor from "../component/DetailProduct/DetailProductMentor";
 import DetailProductList from "../component/DetailProduct/DetailProductList";
 import DetailProductReview from "../component/DetailProduct/DetailProductReview";
@@ -51,7 +51,7 @@ export default function DetailProduct() {
         </div>
         <HeroSection />
 
-        <div className="mobile-mode">
+        <div className="detail-product-mobile">
           <DetailProductCard />
 
           <div className="row gap-4 w-100 m-auto">

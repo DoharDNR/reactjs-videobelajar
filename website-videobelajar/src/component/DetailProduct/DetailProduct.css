@@ -4,7 +4,7 @@
   text-overflow: ellipsis;
 }
 
-.mobile-mode {
+.detail-product-mobile {
   width: 92%;
   margin-left: auto;
   margin-right: auto;
@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 992px) {
-  .mobile-mode {
+  .detail-product-mobile {
     width: 94%;
     display: block;
   }
