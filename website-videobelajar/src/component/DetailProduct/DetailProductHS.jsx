@@ -19,10 +19,10 @@ export default function HeroSection() {
         />
 
         <div
-          className="position-absolute top-50 start-50 translate-middle text-white px-3"
+          className="position-absolute top-50 start-50 translate-middle text-white"
           style={{ width: "80%" }}
         >
-          <h1 className="fw-bold fs-2 mb-3">
+          <h1 className="fw-bold mb-3">
             Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product
             Manager.
           </h1>

@@ -1,4 +1,4 @@
-import CourseCollection from "../component/Beranda/CourseCollection";
+import BerandaContent from "../component/Beranda/BerandaContent";
 import Header from "../component/HeaderNav";
 import HeroSection from "../component/Beranda/HeroSection";
 import Newsletter from "../component/Beranda/Newsletter";
@@ -9,7 +9,7 @@ export default function Beranda() {
     <>
       <Header color="#333" />
       <HeroSection />
-      <CourseCollection />
+      <BerandaContent />
       <Newsletter />
       <Footer />
     </>

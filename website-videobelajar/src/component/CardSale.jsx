@@ -1,9 +1,9 @@
-import StarRating from "./StarRating";
+import StarRating from "./Beranda/StarRating";
 import "./CardSale.css";
 
 const CardSale = ({ video }) => {
   return (
-    <div className="card shadow-sm border-1 p-3 gap-3">
+    <div className="card shadow-sm border-1 p-3 gap-3 m-0">
       <div className="card-sale gap-3">
         <img
           src={video.banner}

@@ -1,21 +1,25 @@
-.text-wrap-update{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.text-wrap-update {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mobile-mode {
-    width: 92%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 2rem;
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2rem;
 }
 
-@media(max-width:992px){
-    .mobile-mode{
-        width: 94%;
-        display: block;
-    }
+.hero-section-text {
+  width: 80%;
+}
+
+@media (max-width: 992px) {
+  .mobile-mode {
+    width: 94%;
+    display: block;
+  }
 }

@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.card-sale-mentor {
+  display: flex;
+}
+
 .card-img {
   height: 255px;
 }
@@ -13,10 +17,6 @@
   }
   .card-sale-hidden {
     display: none;
-  }
-
-  .card-sale-mentor {
-    display: flex;
   }
 
   .card-img {

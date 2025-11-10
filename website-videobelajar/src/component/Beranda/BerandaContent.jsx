@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Beranda.css";
-import CardSale from "./CardSale";
+import CardSale from "../CardSale";
 import { videos } from "../../database/DaftarKonten";
 
-export default function VideoCollection() {
+export default function BerandaContent() {
   const tabs = [
     "Semua Kelas",
     "Pemasaran",
@@ -84,9 +84,9 @@ export default function VideoCollection() {
         ></div>
       </div>
 
-      <div className="row g-4">
+      <div className="row">
         {filteredVideos.map((video) => (
-          <div key={video.id} className="col-12 col-md-6 col-lg-4">
+          <div key={video.id} className="col-sm-4 pb-4">
             <CardSale video={video} />
           </div>
         ))}

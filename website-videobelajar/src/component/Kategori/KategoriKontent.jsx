@@ -2,10 +2,11 @@
 import RatingStars from "../Beranda/StarRating";
 import FilterPage from "./FilterPage";
 import { videos } from "../../database/DaftarKonten";
+import CardSale from "../CardSale";
 
 export default function KategoriKonten() {
   return (
-    <section className="container p-5">
+    <section className="container p-3">
       <h4 className="fw-bold mb-1">Koleksi Video Pembelajaran Unggulan</h4>
       <p className="text-muted mb-4">
         Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!
@@ -82,48 +83,10 @@ export default function KategoriKonten() {
               <i className="bi bi-search"></i>
             </div>
           </div>
-          <div className="row g-4">
+          <div className="row">
             {videos.map((video) => (
-              <div key={video.id} className="col-12 col-md-6">
-                <div className="card h-100 shadow-sm border-1 p-3">
-                  <img
-                    src={video.banner}
-                    alt={video.title}
-                    className="card-img-top"
-                    style={{ height: "200px", objectFit: "cover" }}
-                  />
-                  <div className="card-body">
-                    <h6 className="fw-bold">{video.title}</h6>
-                    <p className="text-muted small">
-                      Mulai transformasi dengan instruktur profesional, harga
-                      yang terjangkau, dan...
-                    </p>
-                    <div className="d-flex align-items-center mb-2">
-                      <img
-                        src={video.img}
-                        alt={video.instructor}
-                        className="rounded-2 me-2"
-                        style={{ width: "45px" }}
-                      />
-                      <div>
-                        <p className="mb-0 small fw-semibold">
-                          {video.instructor}
-                        </p>
-                        <p className="text-muted small mb-0">{video.role}</p>
-                      </div>
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="d-flex gap-1 align-items-center">
-                        <RatingStars score={3} />
-                        <span className="text-muted small">{video.rating}</span>
-                        <span className="text-muted small">{"(86)"}</span>
-                      </div>
-                      <span className="fw-bold text-success-update">
-                        {video.price}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+              <div key={video.id} className="col-sm-6 pb-4">
+                <CardSale video={video} />
               </div>
             ))}
           </div>

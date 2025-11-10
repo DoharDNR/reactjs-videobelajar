@@ -3,7 +3,6 @@ import Beranda from "./halaman/Beranda";
 import Login from "./halaman/Login";
 import Register from "./halaman/Register";
 import Kategori from "./halaman/Kategori";
-import FilterPage from "./component/Kategori/FilterPage";
 import DetailProduct from "./halaman/DetailProduct";
 import PaymentMethod from "./halaman/PaymentMetode";
 import PaymentGateway from "./halaman/PaymentGateway";
@@ -20,7 +19,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/beranda" element={<Beranda />} />
         <Route path="/kategori" element={<Kategori />} />
-        <Route path="/detail-product" element={<DetailProduct />} />
+        <Route path="/product" element={<DetailProduct />} />
         <Route path="/payment-method" element={<PaymentMethod />} />
         <Route path="/payment-gateway" element={<PaymentGateway />} />
         <Route path="/payment-change" element={<PaymentChange />} />
