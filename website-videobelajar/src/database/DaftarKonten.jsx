@@ -24,6 +24,22 @@ const imgCustomer = [
   `${locationSrc}/img-resource/customer9.png`,
 ];
 
+const BankTransfer = [
+  { iconBank: "/src/assets/iconPayment/BCA-icon.png", nameBank: "Bank BCA" },
+  { iconBank: "/src/assets/iconPayment/BNI-icon.png", nameBank: "Bank BNI" },
+  { iconBank: "/src/assets/iconPayment/BRI-icon.png", nameBank: "Bank BRI" },
+  {
+    iconBank: "/src/assets/iconPayment/Mandiri-icon.png",
+    nameBank: "Bank Mandiri",
+  },
+];
+const EWallet = [
+  { iconBank: "/src/assets/iconPayment/DANA-icon.png", nameBank: "Dana" },
+  { iconBank: "/src/assets/iconPayment/OVO-icon.png", nameBank: "OVO" },
+  { iconBank: "/src/assets/iconPayment/LA-icon.png", nameBank: "LinkAja" },
+  { iconBank: "/src/assets/iconPayment/SP-icon.png", nameBank: "Shopee Pay" },
+];
+
 const videos = [
   {
     id: 1,
@@ -102,7 +118,7 @@ const transaction = [
     title: "Big 4 Auditor Financial Analyst",
     describe:
       "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik",
-    category: "Bisnis",
+    category: "Berhasil",
     price: "Rp 300K",
     status: "Berhasil",
   },
@@ -110,7 +126,7 @@ const transaction = [
     id: 2,
     banner: imgBanner[1],
     title: "Big 4 Auditor Financial Analyst",
-    category: "Bisnis",
+    category: "Gagal",
     price: "Rp 350K",
     status: "Gagal",
   },
@@ -118,7 +134,7 @@ const transaction = [
     id: 3,
     banner: imgBanner[2],
     title: "Big 4 Auditor Financial Analyst",
-    category: "Pemasaran",
+    category: "Menunggu",
     price: "Rp 250K",
     status: "Belum Bayar",
   },
@@ -126,7 +142,7 @@ const transaction = [
     id: 4,
     banner: imgBanner[3],
     title: "Big 4 Auditor Financial Analyst",
-    category: "Pemasaran",
+    category: "Berhasil",
     price: "Rp 270K",
     status: "Berhasil",
   },
@@ -134,7 +150,7 @@ const transaction = [
     id: 5,
     banner: imgBanner[4],
     title: "Big 4 Auditor Financial Analyst",
-    category: "Desain",
+    category: "Gagal",
     price: "Rp 280K",
     status: "Gagal",
   },
@@ -142,27 +158,65 @@ const transaction = [
     id: 6,
     banner: imgBanner[5],
     title: "Big 4 Auditor Financial Analyst",
-    category: "Desain",
+    category: "Menunggu",
     price: "Rp 240K",
     status: "Belum Bayar",
   },
 ];
 
-const BankTransfer = [
-  { iconBank: "/src/assets/iconPayment/BCA-icon.png", nameBank: "Bank BCA" },
-  { iconBank: "/src/assets/iconPayment/BNI-icon.png", nameBank: "Bank BNI" },
-  { iconBank: "/src/assets/iconPayment/BRI-icon.png", nameBank: "Bank BRI" },
+const myCourse = [
   {
-    iconBank: "/src/assets/iconPayment/Mandiri-icon.png",
-    nameBank: "Bank Mandiri",
+    id: 1,
+    banner: imgBanner[0],
+    title: "Big 4 Auditor Financial Analyst",
+    describe:
+      "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik",
+    category: "Berhasil",
+    price: "Rp 300K",
+    status: "Berhasil",
+  },
+  {
+    id: 2,
+    banner: imgBanner[1],
+    title: "Big 4 Auditor Financial Analyst",
+    category: "Gagal",
+    price: "Rp 350K",
+    status: "Gagal",
+  },
+  {
+    id: 3,
+    banner: imgBanner[2],
+    title: "Big 4 Auditor Financial Analyst",
+    category: "Menunggu",
+    price: "Rp 250K",
+    status: "Belum Bayar",
+  },
+  {
+    id: 4,
+    banner: imgBanner[3],
+    title: "Big 4 Auditor Financial Analyst",
+    category: "Berhasil",
+    price: "Rp 270K",
+    status: "Berhasil",
+  },
+  {
+    id: 5,
+    banner: imgBanner[4],
+    title: "Big 4 Auditor Financial Analyst",
+    category: "Gagal",
+    price: "Rp 280K",
+    status: "Gagal",
+  },
+  {
+    id: 6,
+    banner: imgBanner[5],
+    title: "Big 4 Auditor Financial Analyst",
+    category: "Menunggu",
+    price: "Rp 240K",
+    status: "Belum Bayar",
   },
 ];
-const EWallet = [
-  { iconBank: "/src/assets/iconPayment/DANA-icon.png", nameBank: "Dana" },
-  { iconBank: "/src/assets/iconPayment/OVO-icon.png", nameBank: "OVO" },
-  { iconBank: "/src/assets/iconPayment/LA-icon.png", nameBank: "LinkAja" },
-  { iconBank: "/src/assets/iconPayment/SP-icon.png", nameBank: "Shopee Pay" },
-];
+
 //Database-Line
 
-export { videos, transaction, BankTransfer, EWallet };
+export { videos, transaction, myCourse, BankTransfer, EWallet };

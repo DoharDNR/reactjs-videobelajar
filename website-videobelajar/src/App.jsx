@@ -15,10 +15,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Beranda />} />
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/test" element={<FilterPage />} />
+        <Route path="/beranda" element={<Beranda />} />
         <Route path="/kategori" element={<Kategori />} />
         <Route path="/detail-product" element={<DetailProduct />} />
         <Route path="/payment-method" element={<PaymentMethod />} />

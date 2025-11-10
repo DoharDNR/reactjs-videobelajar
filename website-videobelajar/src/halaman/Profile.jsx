@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DaftarPesanan from "../component/Profile/DaftarPesanan";
 import "../component/Profile/Profil.css";
+import DaftarKelas from "../component/Profile/DaftarKelas";
 
 export default function Pesanan() {
   const [selectedComponent, setSelectedComponent] = useState("home");
@@ -10,11 +11,11 @@ export default function Pesanan() {
       case "profil":
         return console.log("Profil");
       case "kelas":
-        return console.log("Kelas");
+        return <DaftarKelas />;
       case "pesanan":
         return <DaftarPesanan />;
       default:
-        return <DaftarPesanan />;
+        return;
     }
   };
 
@@ -30,8 +31,8 @@ export default function Pesanan() {
   ];
   return (
     <>
-      <div className="p-3 gap-3">
-        <div className="w-100">
+      <div className="p-3 gap-3 mobile-mode">
+        <div className="h-100">
           <h5>Daftar Pesanan</h5>
           <p className="text-muted">Informasi terperinci mengenai pembelian</p>
           <div className="card p-3">
@@ -50,7 +51,7 @@ export default function Pesanan() {
             ))}
           </div>
         </div>
-        <div>{renderComponent()}</div>
+        <div className="w-100">{renderComponent()}</div>
       </div>
     </>
   );

@@ -2,14 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 import { transaction } from "../../database/DaftarKonten";
 import "../Profile/Profil.css";
 
-export default function DaftarPesanan() {
-  const tabs = ["Semua Pesanan", "Menunggu", "Berhasil", "Gagal"];
-  const [activeTab, setActiveTab] = useState("Semua Pesanan");
+export default function DaftarKelas() {
+  const tabs = ["Semua Kelas", "Sedang Berjalan", "Selesai"];
+  const [activeTab, setActiveTab] = useState("Semua Kelas");
   const [lineAnimate, setLineAnimate] = useState({});
   const tabRefs = useRef([]);
 
   const filteredVideos =
-    activeTab === "Semua Pesanan"
+    activeTab === "Semua Kelas"
       ? transaction
       : transaction.filter((v) => v.category === activeTab);
 
@@ -74,18 +74,8 @@ export default function DaftarPesanan() {
         </div>
 
         <div className="d-flex gap-2 justify-content-between">
-          <div className="dropdown">
-            <button
-              className="btn bg-white border border-1 dropdown-toggle h-100 w-100"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Urutkan
-            </button>
-          </div>
           <div className="d-flex bg-white border border-1 rounded p-2">
-            <input type="text" className="border-0" placeholder="Search..." />
+            <input type="text" className="border-0" placeholder="Cari Kelas" />
             <i className="bi bi-search"></i>
           </div>
         </div>
@@ -93,18 +83,14 @@ export default function DaftarPesanan() {
 
       <div className="d-flex flex-column gap-3">
         {filteredVideos.map((video, index) => (
-          <div key={index} className="card w-100">
+          <div key={index} className="card">
             <div
-              className="rounded-top p-3 mobile-mode w-100"
+              className="rounded-top p-3 d-flex justify-content-between"
               style={{ backgroundColor: "#E2FCD933" }}
             >
-              <div className="d-flex gap-2">
-                <p className="text-muted mobile-mode-switch">No. Invoice:</p>
-                <a href="#">{"HEL/VI/10062023"}</a>
-                <p className="text-muted mobile-mode-switch">
-                  Waktu Pembayaran:
-                </p>
-                <p className="text-muted">{"10 Juni 2023, 14.17"}</p>
+              <div className="d-flex gap-2 align-items-center">
+                <p className="m-0">{"12/12"}</p>
+                <p className="text-muted m-0">Modul Terselesaikan</p>
               </div>
               <div
                 className="btn"
@@ -127,13 +113,13 @@ export default function DaftarPesanan() {
               </div>
             </div>
 
-            <div className="border-top border-bottom p-3 mobile-mode w-100">
-              <div className="d-flex gap-3 align-items-center">
+            <div className="border-top border-bottom p-3">
+              <div className="card-responsive">
                 <img
                   src={video.banner}
                   alt={video.title}
-                  className="card-img"
-                  style={{ width: "52px", height: "52px", objectFit: "cover" }}
+                  className="card-img content-mobile-mode"
+                  style={{ objectFit: "cover" }}
                 />
                 <p className="m-0">
                   Mulai transformasi dengan instruktur profesional, harga yang
@@ -144,7 +130,6 @@ export default function DaftarPesanan() {
               <h5 className="text-muted">Harga</h5>
               <h6 className="fw-bold">{"Rp 300.000"}</h6>
             </div>
-
             <div
               className="d-flex justify-content-between align-items-center p-3"
               style={{ backgroundColor: "#E2FCD933" }}
@@ -155,6 +140,7 @@ export default function DaftarPesanan() {
           </div>
         ))}
       </div>
+
       <div
         className="d-flex gap-2 justify-content-end mt-4"
         style={{ height: "40px" }}
