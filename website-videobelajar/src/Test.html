@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Label dengan Border</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 600;
+      }
+
+      .form-group {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 16px 15px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      .form-input:focus {
+        border-color: #3498db;
+      }
+
+      .form-label {
+        position: absolute;
+        top: -10px;
+        left: 12px;
+        background-color: white;
+        padding: 0 8px;
+        font-size: 14px;
+        color: #7f8c8d;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      /* Warna label dan border berubah bersamaan saat fokus */
+      .form-input:focus + .form-label {
+        color: #3498db;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Input Label dengan Border</h1>
+
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-input" id="name" required />
+          <label for="name" class="form-label">Nama Lengkap</label>
+        </div>
+
+        <div class="form-group">
+          <input type="email" class="form-input" id="email" required />
+          <label for="email" class="form-label">Alamat Email</label>
+        </div>
+
+        <div class="form-group">
+          <input type="password" class="form-input" id="password" required />
+          <label for="password" class="form-label">Kata Sandi</label>
+        </div>
+
+        <h3 style="margin: 20px 0 10px; color: #2c3e50">
+          Variasi Warna Lainnya
+        </h3>
+
+        <div class="form-group variant-1">
+          <input type="text" class="form-input" id="phone" required />
+          <label for="phone" class="form-label">Nomor Telepon (Merah)</label>
+        </div>
+
+        <div class="form-group variant-2">
+          <input type="text" class="form-input" id="address" required />
+          <label for="address" class="form-label">Alamat (Hijau)</label>
+        </div>
+
+        <div class="form-group variant-3">
+          <input type="text" class="form-input" id="city" required />
+          <label for="city" class="form-label">Kota (Ungu)</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Daftar Sekarang</button>
+      </form>
+
+      <div class="demo-note">
+        <h3>Cara Kerja Desain Ini:</h3>
+        <p>
+          Label ditempatkan secara absolut di atas input field. Garis border
+          input terlihat "terputus" di belakang label karena label memiliki
+          background putih yang menutupi bagian border tersebut.
+        </p>
+        <p>
+          <strong>Fitur Baru:</strong> Warna border input dan label berubah
+          secara bersamaan saat input dalam keadaan fokus.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { transaction } from "../../database/DaftarKonten";
 import "../Profile/Profil.css";
+import DaftarPesananList from "./DaftarPesananList";
 
 export default function DaftarPesanan() {
   const tabs = ["Semua Pesanan", "Menunggu", "Berhasil", "Gagal"];
@@ -24,7 +25,7 @@ export default function DaftarPesanan() {
 
   return (
     <section className="card container gap-3 mb-5 p-3">
-      <div className="mobile-mode justify-content-between">
+      <div className="profil-mobile-mode">
         <div className="position-relative mb-2 border-bottom">
           <div
             className="d-flex flex-nowrap gap-4 position-relative tab-slider"
@@ -73,88 +74,30 @@ export default function DaftarPesanan() {
           ></div>
         </div>
 
-        <div className="d-flex gap-2 justify-content-between">
-          <div className="dropdown">
-            <button
-              className="btn bg-white border border-1 dropdown-toggle h-100 w-100"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Urutkan
-            </button>
-          </div>
+        <div className="d-flex gap-2 justify-content-between profil-mobile-filter">
           <div className="d-flex bg-white border border-1 rounded p-2">
             <input type="text" className="border-0" placeholder="Search..." />
             <i className="bi bi-search"></i>
           </div>
+          <button
+            className="btn bg-white border border-1 dropdown-toggle w-100"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Urutkan
+          </button>
         </div>
       </div>
 
       <div className="d-flex flex-column gap-3">
         {filteredVideos.map((video, index) => (
           <div key={index} className="card w-100">
-            <div
-              className="rounded-top p-3 mobile-mode w-100"
-              style={{ backgroundColor: "#E2FCD933" }}
-            >
-              <div className="d-flex gap-2">
-                <p className="text-muted mobile-mode-switch">No. Invoice:</p>
-                <a href="#">{"HEL/VI/10062023"}</a>
-                <p className="text-muted mobile-mode-switch">
-                  Waktu Pembayaran:
-                </p>
-                <p className="text-muted">{"10 Juni 2023, 14.17"}</p>
-              </div>
-              <div
-                className="btn"
-                style={{
-                  ...(video.status === "Berhasil" && {
-                    backgroundColor: "#E0FDDF",
-                    color: "#38D189",
-                  }),
-                  ...(video.status === "Gagal" && {
-                    backgroundColor: "#FCE3D1",
-                    color: "#FF5C2B",
-                  }),
-                  ...(video.status === "Belum Bayar" && {
-                    backgroundColor: "#FFF7D7CC",
-                    color: "#FFBD3A",
-                  }),
-                }}
-              >
-                {video.status}
-              </div>
-            </div>
-
-            <div className="border-top border-bottom p-3 mobile-mode w-100">
-              <div className="d-flex gap-3 align-items-center">
-                <img
-                  src={video.banner}
-                  alt={video.title}
-                  className="card-img"
-                  style={{ width: "52px", height: "52px", objectFit: "cover" }}
-                />
-                <p className="m-0">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-              </div>
-
-              <h5 className="text-muted">Harga</h5>
-              <h6 className="fw-bold">{"Rp 300.000"}</h6>
-            </div>
-
-            <div
-              className="d-flex justify-content-between align-items-center p-3"
-              style={{ backgroundColor: "#E2FCD933" }}
-            >
-              <span className="text-muted">Total Pembayaran</span>
-              <span className="fw-bold text-success-update">{video.price}</span>
-            </div>
+            <DaftarPesananList video={video} />
           </div>
         ))}
       </div>
+
       <div
         className="d-flex gap-2 justify-content-end mt-4"
         style={{ height: "40px" }}

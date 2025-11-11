@@ -2,14 +2,15 @@ import { useState } from "react";
 import DaftarPesanan from "../component/Profile/DaftarPesanan";
 import "../component/Profile/Profil.css";
 import DaftarKelas from "../component/Profile/DaftarKelas";
+import DaftarProfil from "../component/Profile/DaftarProfil";
 
 export default function Pesanan() {
-  const [selectedComponent, setSelectedComponent] = useState("home");
+  const [selectedComponent, setSelectedComponent] = useState("pesanan");
 
   const renderComponent = () => {
     switch (selectedComponent) {
       case "profil":
-        return console.log("Profil");
+        return <DaftarProfil />;
       case "kelas":
         return <DaftarKelas />;
       case "pesanan":
@@ -31,7 +32,7 @@ export default function Pesanan() {
   ];
   return (
     <>
-      <div className="p-3 gap-3 mobile-mode">
+      <div className="p-3 gap-3 profil-mobile-mode">
         <div className="h-100">
           <h5>Daftar Pesanan</h5>
           <p className="text-muted">Informasi terperinci mengenai pembelian</p>

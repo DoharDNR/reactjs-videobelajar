@@ -1,10 +1,10 @@
-.mobile-mode {
+.profil-mobile-mode {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.card-responsive {
+.profil-mobile-card {
   display: flex;
 }
 
@@ -12,13 +12,91 @@
   display: block;
 }
 
+.profil-search-mobile {
+  width: 100%;
+}
+
+.profil-card-img {
+  width: 16%;
+  height: "172px";
+}
+
+.profil-input-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.profil-form-label {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background-color: white;
+  padding: 0 8px;
+  font-size: 14px;
+  color: #7f8c8d;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.profil-form-input {
+  width: 100%;
+  padding: 16px 15px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.profil-form-input:focus {
+  border-color: #3ecf4c;
+}
+.profil-form-input:focus + .profil-form-label {
+  color: #3ecf4c;
+}
+
+.profil-form-button {
+  display: flex;
+  justify-content: end;
+}
+
+.profil-mobile-switch {
+  display: none;
+}
+
 @media (max-width: 990px) {
-  .mobile-mode {
+  .profil-mobile-mode {
     display: flex;
     flex-direction: column;
   }
 
   .mobile-mode-switch {
     display: none;
+  }
+
+  .profil-mobile-filter {
+    flex-direction: row-reverse;
+  }
+
+  .profil-search-mobile input {
+    width: 25%;
+  }
+
+  .profil-mobile-card {
+    flex-direction: column;
+  }
+
+  .profil-card-img {
+    width: 100%;
+  }
+
+  .profil-form-button button {
+    width: 100%;
+  }
+
+  .profil-mobile-switch {
+    display: block;
   }
 }

@@ -28,7 +28,7 @@ export default function PaymentMethod() {
               <hr className="border border-black"></hr>
               <div className="d-flex justify-content-between">
                 <h6 className="fw-bold">Total Pembayaran</h6>
-                <h6>{"Rp 774.500"}</h6>
+                <h6 style={{ color: "#3ECF4C" }}>{"Rp 774.500"}</h6>
               </div>
               <button
                 className="btn"
