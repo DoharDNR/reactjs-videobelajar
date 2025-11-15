@@ -1,12 +1,17 @@
 import DetailProductCard from "../component/DetailProductCard";
+import Footer from "../component/Footer";
+import HeaderNav from "../component/HeaderNav";
 import "../component/PaymentMethod/PaymentMethod.css";
 import PaymentMethodList from "../component/PaymentMethod/PaymentMethodList";
 import { BankTransfer, EWallet } from "../database/DaftarKonten";
+import Metode from "../assets/Stepper-Metode.svg";
 
 export default function PaymentMethod() {
   return (
     <>
+      <HeaderNav logout={"none"} isPayment={"block"} />
       <div className="d-flex flex-column gap-4 m-3">
+        <img src={Metode} alt="" className="payment-method-show" />
         <div className="detail-product-mobile">
           <DetailProductCard />
 
@@ -40,6 +45,7 @@ export default function PaymentMethod() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

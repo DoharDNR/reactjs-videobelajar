@@ -6,9 +6,10 @@ import CourseTestResult from "../component/Course/CourseTestResult";
 import CourseTestFailed from "../component/Course/CourseTestFailed";
 import CoursePopup from "../component/Course/CourseReviewUp";
 import CourseRangkuman from "../component/Course/CourseRangkuman";
+import HeaderNavCourse from "../component/HeaderNavCourse";
 
 export default function Course() {
-  const [selectedComponent, setSelectedComponent] = useState("video");
+  const [selectedComponent, setSelectedComponent] = useState("rangkuman");
 
   const renderComponent = () => {
     switch (selectedComponent) {
@@ -103,6 +104,7 @@ export default function Course() {
 
   return (
     <>
+      <HeaderNavCourse classMode={"none"} />
       <div className="bg-light vh-100">
         <div className="course-video-row">
           {renderComponent()}

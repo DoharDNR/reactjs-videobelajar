@@ -6,18 +6,22 @@ import Done from "../assets/Stepper-Done.svg";
 import { useState } from "react";
 import "./HeaderNav.css";
 
-const HeaderNav = ({ color, logout, isPayment, step }) => {
+const HeaderNavCourse = ({ color, logout, isPayment, step, classMode }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const status = [Metode, Bayar, Done];
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm w-100">
       <div className="container-fluid p-3 px-3" style={{ width: "87%" }}>
-        <a href="#" className="navbar-brand px-1">
+        <a
+          href="#"
+          className="navbar-brand px-1"
+          style={{ display: classMode ? "none" : "block" }}
+        >
           <img src={Gambar} alt="" />
         </a>
         <div className="d-none d-md-flex align-items-center">
           <img src={status[step]} alt="" className="nav-stepper" />
-          <div style={{ display: logout ? "none" : "block" }}>
+          <div style={{ display: logout || classMode ? "none" : "block" }}>
             <a
               href="#kategori"
               className="me-3 text-decoration-none"
@@ -26,6 +30,12 @@ const HeaderNav = ({ color, logout, isPayment, step }) => {
               Kategori
             </a>
             <img src={Avatar} alt="profile" className="rounded-1" />
+          </div>
+          <div
+            className="d-flex"
+            style={{ display: logout || classMode ? "block" : "none" }}
+          >
+            <div style={{}}></div>
           </div>
         </div>
         <button
@@ -76,4 +86,4 @@ const HeaderNav = ({ color, logout, isPayment, step }) => {
   );
 };
 
-export default HeaderNav;
+export default HeaderNavCourse;

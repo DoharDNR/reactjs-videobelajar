@@ -3,6 +3,8 @@ import DaftarPesanan from "../component/Profile/DaftarPesanan";
 import "../component/Profile/Profil.css";
 import DaftarKelas from "../component/Profile/DaftarKelas";
 import DaftarProfil from "../component/Profile/DaftarProfil";
+import HeaderNav from "../component/HeaderNav";
+import Footer from "../component/Footer";
 
 export default function Profil() {
   const [selectedComponent, setSelectedComponent] = useState("pesanan");
@@ -32,6 +34,7 @@ export default function Profil() {
   ];
   return (
     <>
+      <HeaderNav color={"#333"} />
       <div className="p-3 gap-3 profil-mobile-mode">
         <div className="h-100">
           <h5>Daftar Pesanan</h5>
@@ -54,6 +57,7 @@ export default function Profil() {
         </div>
         <div className="w-100">{renderComponent()}</div>
       </div>
+      <Footer />
     </>
   );
 }
