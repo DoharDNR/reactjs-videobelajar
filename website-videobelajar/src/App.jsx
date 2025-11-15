@@ -10,7 +10,6 @@ import PaymentChange from "./halaman/PaymentChange";
 import PaymentSuccess from "./halaman/PaymentSuccess";
 import Profil from "./halaman/Profile";
 import Course from "./halaman/Course";
-import Test from "./test";
 import Certificate from "./halaman/Certificate";
 
 function App() {
