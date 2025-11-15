@@ -1,0 +1,93 @@
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.soal-button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.soal-button:hover {
+  background-color: #0056b3;
+}
+
+.soal-button.active {
+  background-color: #28a745;
+}
+
+.soal-content {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+  margin-bottom: 20px;
+}
+
+.soal-content h2 {
+  color: #007bff;
+  margin-top: 0;
+}
+
+.soal-content h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.soal-content p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.close-button {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.close-button:hover {
+  background-color: #c82333;
+}
+
+.placeholder {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 40px;
+}
+
+@media (max-width: 600px) {
+  .button-container {
+    flex-direction: column;
+  }
+
+  .soal-button {
+    width: 100%;
+  }
+}

@@ -31,6 +31,7 @@ const CardSale = ({ video }) => {
           </div>
         </div>
       </div>
+
       <div className="d-flex justify-content-between align-items-center">
         <div className="d-flex gap-1 align-items-center">
           <StarRating score={3} />

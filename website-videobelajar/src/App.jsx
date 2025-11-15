@@ -8,13 +8,16 @@ import PaymentMethod from "./halaman/PaymentMetode";
 import PaymentGateway from "./halaman/PaymentGateway";
 import PaymentChange from "./halaman/PaymentChange";
 import PaymentSuccess from "./halaman/PaymentSuccess";
-import Pesanan from "./halaman/Profile";
+import Profil from "./halaman/Profile";
+import Course from "./halaman/Course";
+import Test from "./test";
+import Certificate from "./halaman/Certificate";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Test />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Beranda />} />
@@ -24,22 +27,9 @@ function App() {
         <Route path="/payment-gateway" element={<PaymentGateway />} />
         <Route path="/payment-change" element={<PaymentChange />} />
         <Route path="/payment-done" element={<PaymentSuccess />} />
-        <Route path="/profil" element={<Pesanan />} />
-
-        {/* 2 page per hari 5 */}
-        <Route path="/class" element={<Kategori />} />
-        <Route path="/profil" element={<Kategori />} />
-
-        {/* 2 page per hari 6 */}
-        <Route path="/class-video" element={<Kategori />} />
-        <Route path="/class-rules" element={<Kategori />} />
-
-        {/* 2 page per hari 7 */}
-        <Route path="/class-test" element={<Kategori />} />
-        <Route path="/class-done" element={<Kategori />} />
-
-        {/* 2 page per hari 8 */}
-        <Route path="/class-certificate" element={<Kategori />} />
+        <Route path="/profil" element={<Profil />} />
+        <Route path="/course" element={<Course />} />
+        <Route path="/certificate" element={<Certificate />} />
       </Routes>
     </Router>
   );

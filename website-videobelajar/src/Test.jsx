@@ -1,249 +1,87 @@
 import React, { useState } from "react";
-import "./InputLabel.css"; // Kita akan buat file CSS terpisah
+import "./App.css";
 
-const InputLabel = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    phone: "",
-    address: "",
-    city: "",
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
-  };
-
-  return (
-    <div className="container">
-      <h1>Input Label dengan Border</h1>
-
-      <form onSubmit={handleSubmit}>
-        {/* Default Blue Variant */}
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-input"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="name" className="form-label">
-            Nama Lengkap
-          </label>
-        </div>
-
-        <div className="form-group">
-          <input
-            type="email"
-            className="form-input"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="email" className="form-label">
-            Alamat Email
-          </label>
-        </div>
-
-        <div className="form-group">
-          <input
-            type="password"
-            className="form-input"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="password" className="form-label">
-            Kata Sandi
-          </label>
-        </div>
-
-        <h3 className="variants-title">Variasi Warna Lainnya</h3>
-
-        {/* Red Variant */}
-        <div className="form-group variant-1">
-          <input
-            type="text"
-            className="form-input"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="phone" className="form-label">
-            Nomor Telepon (Merah)
-          </label>
-        </div>
-
-        {/* Green Variant */}
-        <div className="form-group variant-2">
-          <input
-            type="text"
-            className="form-input"
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="address" className="form-label">
-            Alamat (Hijau)
-          </label>
-        </div>
-
-        {/* Purple Variant */}
-        <div className="form-group variant-3">
-          <input
-            type="text"
-            className="form-input"
-            id="city"
-            name="city"
-            value={formData.city}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="city" className="form-label">
-            Kota (Ungu)
-          </label>
-        </div>
-
-        <button type="submit" className="submit-btn">
-          Daftar Sekarang
-        </button>
-      </form>
-
-      <div className="demo-note">
-        <h3>Cara Kerja Desain Ini:</h3>
-        <p>
-          Label ditempatkan secara absolut di atas input field. Garis border
-          input terlihat "terputus" di belakang label karena label memiliki
-          background putih yang menutupi bagian border tersebut.
-        </p>
-        <p>
-          <strong>Fitur Baru:</strong> Warna border input dan label berubah
-          secara bersamaan saat input dalam keadaan fokus.
-        </p>
-      </div>
-    </div>
-  );
-};
-
-// Komponen InputField yang dapat digunakan kembali
-const InputField = ({
-  id,
-  name,
-  type = "text",
-  label,
-  value,
-  onChange,
-  variant = "default",
-  required = false,
-}) => {
-  return (
-    <div
-      className={`form-group ${
-        variant !== "default" ? `variant-${variant}` : ""
-      }`}
-    >
-      <input
-        type={type}
-        className="form-input"
-        id={id}
-        name={name}
-        value={value}
-        onChange={onChange}
-        required={required}
-      />
-      <label htmlFor={id} className="form-label">
-        {label}
-      </label>
-    </div>
-  );
-};
-
-// Contoh penggunaan komponen InputField
-const InputLabelWithReusableComponent = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    fullName: "",
-    bio: "",
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  return (
-    <div className="container">
-      <h1>Input Label dengan Komponen Reusable</h1>
-
-      <form onSubmit={(e) => e.preventDefault()}>
-        <InputField
-          id="username"
-          name="username"
-          label="Username"
-          value={formData.username}
-          onChange={handleInputChange}
-          required
-        />
-
-        <InputField
-          id="fullName"
-          name="fullName"
-          label="Nama Lengkap"
-          value={formData.fullName}
-          onChange={handleInputChange}
-          variant="1" // Red variant
-          required
-        />
-
-        <InputField
-          id="bio"
-          name="bio"
-          label="Bio"
-          value={formData.bio}
-          onChange={handleInputChange}
-          variant="2" // Green variant
-        />
-
-        <button type="submit" className="submit-btn">
-          Simpan Profil
-        </button>
-      </form>
-    </div>
-  );
-};
-
-// Komponen utama yang mengekspor kedua versi
 const Test = () => {
+  // Array berisi 5 objek soal/teks
+  const [soalArray] = useState([
+    {
+      id: 1,
+      pertanyaan: "Apa itu ReactJS?",
+      jawaban:
+        "ReactJS adalah library JavaScript untuk membangun user interface yang dikembangkan oleh Facebook.",
+    },
+    {
+      id: 2,
+      pertanyaan: "Apa keuntungan menggunakan React?",
+      jawaban:
+        "Keuntungan React termasuk virtual DOM, komponen reusable, one-way data flow, dan ecosystem yang besar.",
+    },
+    {
+      id: 3,
+      pertanyaan: "Apa perbedaan antara state dan props?",
+      jawaban:
+        "State adalah data internal komponen yang dapat berubah, sedangkan props adalah data yang diterima dari parent component dan bersifat read-only.",
+    },
+    {
+      id: 4,
+      pertanyaan: "Apa itu JSX?",
+      jawaban:
+        "JSX adalah syntax extension untuk JavaScript yang memungkinkan kita menulis HTML-like code dalam JavaScript.",
+    },
+    {
+      id: 5,
+      pertanyaan: "Apa itu React Hooks?",
+      jawaban:
+        "React Hooks adalah fungsi yang memungkinkan kita menggunakan state dan lifecycle features dalam functional components.",
+    },
+  ]);
+
+  const [soalAktif, setSoalAktif] = useState(null);
+
+  const handleTampilkanSoal = (soal) => {
+    setSoalAktif(soal);
+  };
+
+  const handleSembunyikanSoal = () => {
+    setSoalAktif(null);
+  };
+
   return (
-    <>
-      <InputLabel />
-      <InputLabelWithReusableComponent />
-    </>
+    <div className="app">
+      <h1>Kumpulan Soal ReactJS</h1>
+      <p>Pilih salah satu soal untuk melihat penjelasannya:</p>
+
+      <div className="button-container">
+        {soalArray.map((soal) => (
+          <button
+            key={soal.id}
+            className={`soal-button ${
+              soalAktif?.id === soal.id ? "active" : ""
+            }`}
+            onClick={() => handleTampilkanSoal(soal)}
+          >
+            Soal {soal.id}
+          </button>
+        ))}
+      </div>
+
+      {soalAktif && (
+        <div className="soal-content">
+          <h2>Soal {soalAktif.id}</h2>
+          <h3>{soalAktif.pertanyaan}</h3>
+          <p>{soalAktif.jawaban}</p>
+          <button className="close-button" onClick={handleSembunyikanSoal}>
+            Tutup
+          </button>
+        </div>
+      )}
+
+      {!soalAktif && (
+        <div className="placeholder">
+          <p>Pilih salah satu tombol di atas untuk menampilkan soal</p>
+        </div>
+      )}
+    </div>
   );
 };
 

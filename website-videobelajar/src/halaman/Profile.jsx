@@ -4,7 +4,7 @@ import "../component/Profile/Profil.css";
 import DaftarKelas from "../component/Profile/DaftarKelas";
 import DaftarProfil from "../component/Profile/DaftarProfil";
 
-export default function Pesanan() {
+export default function Profil() {
   const [selectedComponent, setSelectedComponent] = useState("pesanan");
 
   const renderComponent = () => {

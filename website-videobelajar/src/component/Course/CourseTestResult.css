@@ -1,0 +1,9 @@
+.course-test-result {
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 425px) {
+  .course-test-result {
+    flex-wrap: wrap;
+  }
+}

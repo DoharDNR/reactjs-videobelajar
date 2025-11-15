@@ -1,0 +1,179 @@
+.course-video-row {
+  display: flex;
+}
+
+.course-content-switch {
+  display: none;
+}
+
+.course-button {
+  background-color: #fff;
+}
+
+.course-button:hover {
+  background-color: #e2fcd966;
+}
+
+.course-button:focus {
+  border-color: #3ecf4c;
+}
+
+.course-content-nav {
+  position: absolute;
+  bottom: 2%;
+  left: 28%;
+  width: 40%;
+}
+
+/* ========================= */
+
+.course-choose {
+  display: flex;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* border: 1px solid #dee2e6; */
+  align-items: center;
+}
+
+.course-choose:hover {
+  border-color: #3ecf4c;
+}
+
+.course-choose.selected + {
+  border-color: #3ecf4c;
+}
+
+.selected label {
+  color: #3ecf4c;
+}
+
+.radio-item {
+  align-items: center;
+  /* display: flex; */
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+  transition: background-color 0.3s;
+}
+
+.radio-green {
+  color: #3ecf4c;
+}
+
+.radio-input {
+  display: none;
+}
+
+.radio-custom {
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  position: relative;
+  transition: all 0.3s ease;
+  background-color: #e2fcd9cc;
+}
+
+.radio-input:checked + .radio-custom {
+  border-color: currentColor;
+}
+
+.radio-input:checked + .radio-custom::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.radio-label {
+  font-size: 16px;
+  color: #333;
+}
+
+.btn-test {
+  border: 1px solid #f64920;
+}
+
+.course-button-number {
+  width: 90%;
+  padding: 1rem;
+}
+
+/* ========= Button Soal ========== */
+
+input[type="radio"] {
+  display: none;
+}
+
+.button-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+input[type="radio"]:checked + .button-label {
+  border-color: #f64920;
+  background-color: #fee8d2cc;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(246, 73, 32, 0.2);
+}
+
+/* ========= Button Soal ========== */
+
+.course-popup {
+  width: 640px;
+  height: 490px;
+  top: 25%;
+  left: 28%;
+}
+
+@media (max-width: 990px) {
+  .course-video-row {
+    flex-direction: column;
+  }
+
+  .course-content-switch {
+    display: flex;
+  }
+}
+
+@media (max-width: 425px) {
+  .course-button-number {
+    width: 100%;
+    padding: 1rem 2.5rem;
+  }
+
+  .course-video-row + .w-100P {
+    padding: 1rem 1rem;
+  }
+
+  .course-list-soal {
+    padding: 1rem 1rem;
+  }
+
+  .course-content-nav {
+    position: static;
+  }
+
+  .course-popup {
+    width: 90%;
+    top: 15%;
+    left: 5%;
+  }
+}
