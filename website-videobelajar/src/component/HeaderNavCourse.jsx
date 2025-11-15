@@ -6,29 +6,73 @@ import Done from "../assets/Stepper-Done.svg";
 import { useState } from "react";
 import "./HeaderNav.css";
 
-const HeaderNavCourse = ({ color, logout, isPayment, step, classMode }) => {
+const HeaderNavCourse = ({ logout, isPayment, step, classMode }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const status = [Metode, Bayar, Done];
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm w-100">
       <div className="container-fluid p-3 px-3" style={{ width: "87%" }}>
-        <a
-          href="#"
-          className="navbar-brand px-1"
-          style={{ display: classMode ? "none" : "block" }}
-        >
-          <img src={Gambar} alt="" />
-        </a>
+        <button className="d-flex border-0 bg-transparent text-wrap-update">
+          <i className="bi bi-arrow-left me-2" />
+          Foundations of User Experience Design
+        </button>
         <div className="d-none d-md-flex align-items-center">
           <img src={status[step]} alt="" className="nav-stepper" />
-          <div style={{ display: logout || classMode ? "none" : "block" }}>
-            <a
-              href="#kategori"
-              className="me-3 text-decoration-none"
-              style={{ color: color }}
+          <div className="d-flex align-items-center">
+            <div
+              className="rounded"
+              style={{
+                backgroundColor: "#FFF7D7CC",
+                width: "10rem",
+                height: "10px",
+              }}
             >
-              Kategori
-            </a>
+              <div
+                className="rounded display-off"
+                style={{
+                  objectFit: "contain",
+                  backgroundColor: "#FFBD3A",
+                  width: "80%",
+                  height: "10px",
+                }}
+              />
+            </div>
+            <div className="btn-group">
+              <button
+                type="button"
+                className="btn dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={{ color: "#3ECF4C" }}
+              >
+                {"10/12"}
+              </button>
+              <ul className="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    <h6 className="fw-bold">25% Modul Telah Selesai</h6>
+                  </a>
+                </li>
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Selesaikan Semua Modul Untuk Mendapatkan Sertifikat
+                  </a>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="btn btn-secondary mx-3"
+                    disabled
+                    style={{ width: "93%" }}
+                  >
+                    Ambil Sertifikat
+                  </button>
+                </li>
+              </ul>
+            </div>
             <img src={Avatar} alt="profile" className="rounded-1" />
           </div>
           <div

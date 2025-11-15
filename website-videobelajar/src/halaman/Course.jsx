@@ -7,9 +7,10 @@ import CourseTestFailed from "../component/Course/CourseTestFailed";
 import CoursePopup from "../component/Course/CourseReviewUp";
 import CourseRangkuman from "../component/Course/CourseRangkuman";
 import HeaderNavCourse from "../component/HeaderNavCourse";
+import FooterCourse from "../component/Course/FooterCourse";
 
 export default function Course() {
-  const [selectedComponent, setSelectedComponent] = useState("rangkuman");
+  const [selectedComponent, setSelectedComponent] = useState("video");
 
   const renderComponent = () => {
     switch (selectedComponent) {
@@ -105,7 +106,7 @@ export default function Course() {
   return (
     <>
       <HeaderNavCourse classMode={"none"} />
-      <div className="bg-light vh-100">
+      <div className="bg-light" style={{ height: "92vh" }}>
         <div className="course-video-row">
           {renderComponent()}
 
@@ -162,6 +163,9 @@ export default function Course() {
               <p className="m-0">Beri Review & Rating</p>
             </div>
           </div>
+        </div>
+        <div className="display-off">
+          <FooterCourse />
         </div>
       </div>
     </>

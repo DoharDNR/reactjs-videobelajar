@@ -1,3 +1,9 @@
+.text-wrap-update {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media (max-width: 425px) {
   .nav-stepper {
     width: 100%;

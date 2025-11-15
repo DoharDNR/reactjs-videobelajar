@@ -1,13 +1,13 @@
-body{
-    background-color: #FFFDF3;
+body {
+  background-color: #fffdf3;
 }
 
-.text-gray{
-    color: #C1C2C4;
+.text-gray {
+  color: #c1c2c4;
 }
 
-@media(max-width: 992px) {
-    .display-off{
-        display: none;
-    }
+@media (max-width: 992px) {
+  .display-off {
+    display: none;
+  }
 }

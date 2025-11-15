@@ -1,5 +1,6 @@
 import videoImg from "../../assets/img-resource/customer8.png";
 import StarRating from "../Beranda/StarRating";
+import FooterCourse from "./FooterCourse";
 
 const CourseVideo = () => {
   return (
@@ -31,6 +32,10 @@ const CourseVideo = () => {
             <span className="text-muted small">{"3.0"}</span>
             <span className="text-muted small">{"(86)"}</span>
           </div>
+        </div>
+
+        <div className="course-content-switch">
+          <FooterCourse />
         </div>
       </div>
     </div>

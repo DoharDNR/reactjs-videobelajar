@@ -17,7 +17,8 @@ const CourseRangkuman = () => {
             backgroundColor: "#fff",
           }}
         >
-          <i class="bi bi-file-earmark-arrow-down-fill"></i>Download Rangkuman
+          <i className="bi bi-file-earmark-arrow-down-fill"></i>Download
+          Rangkuman
         </button>
       </div>
     </div>
