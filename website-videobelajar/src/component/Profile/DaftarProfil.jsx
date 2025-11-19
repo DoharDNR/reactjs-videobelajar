@@ -1,14 +1,43 @@
+import { useState } from "react";
 import "./Profil.css";
 import profilImg from "./icon/profil.png";
 
 export default function DaftarProfil() {
+  const database = {
+    fullname: "dohar siregar",
+    email: "dohar@gmail.com",
+    gender: "Laki-Laki",
+    regionCode: "+62",
+    phone: "82281235972",
+    password: "123",
+    confirmPassword: "123",
+  };
+
+  const [change, setChange] = useState({
+    fullname: "dohar siregar",
+    email: "dohar@gmail.com",
+    gender: "Laki-Laki",
+    regionCode: "+62",
+    phone: "82281235972",
+    password: "123",
+    confirmPassword: "123",
+  });
+  const handleChange = (e) => {
+    setChange({ ...change, [e.target.id]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    database.fullname = change.fullname;
+    console.log(database);
+    alert("Perubahan berhasil!");
+  };
   return (
     <div className="card p-4 gap-2">
       <div className="d-flex gap-3">
         <img src={profilImg} alt="" style={{ width: "90px", height: "90px" }} />
         <div>
-          <h4 className="m-0">Jennie Ruby Jane</h4>
-          <p className=" m-0">rubyjane@gmail.com</p>
+          <h4 className="m-0">{database.fullname}</h4>
+          <p className=" m-0">{database.email}</p>
           <button
             className="border-0 bg-transparent fw-bold p-0"
             style={{ color: "#F64920" }}
@@ -18,12 +47,14 @@ export default function DaftarProfil() {
         </div>
       </div>
       <hr />
-      <form>
-        <div className="profil-mobile-mode gap-3">
-          <div className="profil-input-field w-100">
+      <form onSubmit={handleSubmit}>
+        <div className="profil-mobile-mode gap-3 flex-wrap">
+          <div className="profil-input-field">
             <input
               type="text"
-              id="name"
+              id="fullname"
+              value={change.fullname}
+              onChange={handleChange}
               className="profil-form-input"
               required
             />
@@ -32,10 +63,12 @@ export default function DaftarProfil() {
             </label>
           </div>
 
-          <div className="profil-input-field w-100">
+          <div className="profil-input-field">
             <input
               type="email"
               id="email"
+              value={change.email}
+              onChange={handleChange}
               className="profil-form-input"
               required
             />
@@ -44,8 +77,14 @@ export default function DaftarProfil() {
             </label>
           </div>
 
-          <div className="profil-input-field profil-mobile-switch">
-            <select id="option" className="profil-form-input" required>
+          <div className="profil-input-field">
+            <select
+              id="option"
+              className="profil-form-input"
+              value={change.gender}
+              onChange={handleChange}
+              required
+            >
               <option value="0">Perempuan</option>
               <option value="1">Laki-laki</option>
             </select>
@@ -54,9 +93,14 @@ export default function DaftarProfil() {
             </label>
           </div>
 
-          <div className="d-flex gap-3 w-100">
+          <div className="d-flex gap-3">
             <div className="profil-input-field w-50">
-              <select className="profil-form-input" required>
+              <select
+                className="profil-form-input"
+                value={change.regionCode}
+                onChange={handleChange}
+                required
+              >
                 <option value="0">+62</option>
                 <option value="1">+08</option>
               </select>
@@ -67,6 +111,8 @@ export default function DaftarProfil() {
                 type="number"
                 id="phone"
                 className="profil-form-input"
+                value={change.phone}
+                onChange={handleChange}
                 required
               />
               <label htmlFor="phone" className="profil-form-label">
@@ -75,11 +121,13 @@ export default function DaftarProfil() {
             </div>
           </div>
 
-          <div className="profil-input-field profil-mobile-switch">
+          <div className="profil-input-field">
             <input
               type="password"
               id="password"
               className="profil-form-input"
+              value={change.password}
+              onChange={handleChange}
               required
             />
             <label htmlFor="password" className="profil-form-label">
@@ -87,11 +135,13 @@ export default function DaftarProfil() {
             </label>
           </div>
 
-          <div className="profil-input-field profil-mobile-switch">
+          <div className="profil-input-field">
             <input
               type="password"
               id="confirm-password"
               className="profil-form-input"
+              value={change.confirmPassword}
+              onChange={handleChange}
               required
             />
             <label htmlFor="confirm-password" className="profil-form-label">

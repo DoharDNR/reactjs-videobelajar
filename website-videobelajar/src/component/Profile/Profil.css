@@ -1,7 +1,7 @@
 .profil-mobile-mode {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
 }
 
 .profil-mobile-card {

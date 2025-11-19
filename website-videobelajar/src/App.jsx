@@ -11,21 +11,27 @@ import PaymentSuccess from "./halaman/PaymentSuccess";
 import Profil from "./halaman/Profile";
 import Course from "./halaman/Course";
 import Certificate from "./halaman/Certificate";
+import { useState } from "react";
 
 function App() {
+  const [data, setData] = useState([]);
+  console.log("Akun", data);
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login database={data} />} />
+        <Route path="/register" element={<Register database={setData} />} />
+        <Route path="/login" element={<Login database={data} />} />
         <Route path="/home" element={<Beranda />} />
         <Route path="/category" element={<Kategori />} />
         <Route path="/product" element={<DetailProduct />} />
         <Route path="/payment-method" element={<PaymentMethod />} />
         <Route path="/payment-gateway" element={<PaymentGateway />} />
         <Route path="/payment-change" element={<PaymentChange />} />
-        <Route path="/payment-done" element={<PaymentSuccess />} />
+        <Route
+          path="/payment-done"
+          element={<PaymentSuccess database={data} />}
+        />
         <Route path="/profil" element={<Profil />} />
         <Route path="/course" element={<Course />} />
         <Route path="/certificate" element={<Certificate />} />

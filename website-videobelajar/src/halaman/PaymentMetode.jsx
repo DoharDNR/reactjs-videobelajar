@@ -9,7 +9,7 @@ import Metode from "../assets/Stepper-Metode.svg";
 export default function PaymentMethod() {
   return (
     <>
-      <HeaderNav logout={"none"} isPayment={"block"} />
+      <HeaderNav logout={"none"} isPayment={"block"} step={0} />
       <div className="d-flex flex-column gap-4 m-3">
         <img src={Metode} alt="" className="payment-method-show" />
         <div className="detail-product-mobile">

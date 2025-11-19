@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../component/HeaderNav";
 
-export default function RegisterPage() {
+export default function RegisterPage({ database }) {
   const [form, setForm] = useState({
     fullname: "",
     email: "",
+    gender: "",
     regionCode: "+62",
     phone: "",
     password: "",
@@ -22,8 +23,10 @@ export default function RegisterPage() {
       alert("Konfirmasi password tidak cocok!");
       return;
     }
-    console.log("Data pendaftaran:", form);
+    database(form);
     alert("Pendaftaran berhasil!");
+
+    navigate("/login");
   };
 
   const navigate = useNavigate();
@@ -88,6 +91,24 @@ export default function RegisterPage() {
               <div className="input-group">
                 <select
                   className="form-select"
+                  name="gender"
+                  value={form.gender}
+                  onChange={handleChange}
+                  style={{ width: "100%" }}
+                >
+                  <option value="perempuan">Perempuan</option>
+                  <option value="laki-laki">Laki-Laki</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">
+                No. Hp <span className="text-danger">*</span>
+              </label>
+              <div className="input-group">
+                <select
+                  className="form-select"
                   name="regionCode"
                   value={form.regionCode}
                   onChange={handleChange}
@@ -100,11 +121,11 @@ export default function RegisterPage() {
                   <option value="+1">🇺🇸 +1</option>
                 </select>
                 <input
-                  type="tel"
+                  type="number"
                   className="form-control"
-                  name="phoneNumber"
+                  name="phone"
                   placeholder="8123456789"
-                  value={form.phoneNumber}
+                  value={form.phone}
                   onChange={handleChange}
                   required
                 />

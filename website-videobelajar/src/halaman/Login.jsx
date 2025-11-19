@@ -2,11 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../component/HeaderNav";
 
-export default function Login() {
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
+export default function Login({ database }) {
+  const [form, setForm] = useState([{ email: "", password: "" }]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,12 +11,13 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (form.password !== form.confirmPassword) {
-      alert("Konfirmasi password tidak cocok!");
+    if (form.password !== database.password) {
+      alert("Password anda salah!");
       return;
     }
-    console.log("Data pendaftaran:", form);
-    alert("Pendaftaran berhasil!");
+    console.log("Data Login:", form);
+    alert("berhasil masuk!");
+    navigate("/home");
   };
 
   const navigate = useNavigate();
