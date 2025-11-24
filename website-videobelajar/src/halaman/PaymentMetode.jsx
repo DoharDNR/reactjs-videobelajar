@@ -3,7 +3,7 @@ import Footer from "../component/Footer";
 import HeaderNav from "../component/HeaderNav";
 import "../component/PaymentMethod/PaymentMethod.css";
 import PaymentMethodList from "../component/PaymentMethod/PaymentMethodList";
-import { BankTransfer, EWallet } from "../database/DaftarKonten";
+import { BankTransfer, EWallet } from "../database/DaftarKonten.js";
 import Metode from "../assets/Stepper-Metode.svg";
 
 export default function PaymentMethod() {

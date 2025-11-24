@@ -1,7 +1,6 @@
 import HeroSection from "../component/DetailProduct/DetailProductHS";
 import "../component/DetailProduct/DetailProduct.css";
-import { videos } from "../database/DaftarKonten";
-import StarRating from "../component/Beranda/StarRating";
+import { videos } from "../database/DaftarKonten.js";
 import HeaderNav from "../component/HeaderNav";
 import Footer from "../component/Footer";
 import DetailProductCard from "../component/DetailProductCard";

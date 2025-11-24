@@ -17,15 +17,47 @@ const HeaderNav = ({ color, logout, isPayment, step }) => {
         </a>
         <div className="d-none d-md-flex align-items-center">
           <img src={status[step]} alt="" className="nav-stepper" />
-          <div style={{ display: logout ? "none" : "block" }}>
-            <a
-              href="#kategori"
-              className="me-3 text-decoration-none"
-              style={{ color: color }}
-            >
-              Kategori
-            </a>
-            <img src={Avatar} alt="profile" className="rounded-1" />
+
+          <div style={{ display: logout }}>
+            <div className="d-flex align-items-center">
+              <a
+                href="/category"
+                className="me-3 text-decoration-none"
+                style={{ color: color }}
+              >
+                Kategori
+              </a>
+              <div className="dropdown">
+                <button
+                  className=" bg-transparent border-0"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img src={Avatar} alt="profile" className="rounded-1" />
+                </button>
+                <ul className="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a className="dropdown-item" href="/profil">
+                      Profil
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/course">
+                      My Class
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="dropdown-item d-block py-2 text-danger text-decoration-none fw-semibold"
+                      href="/login"
+                    >
+                      Keluar
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
         <button

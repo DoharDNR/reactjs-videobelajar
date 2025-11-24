@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../component/HeaderNav";
+import { Create, resData } from "../database/RestAPI.js";
 
-export default function RegisterPage({ database }) {
+export default function RegisterPage() {
   const [form, setForm] = useState({
     fullname: "",
     email: "",
-    gender: "",
+    gender: "perempuan",
     regionCode: "+62",
     phone: "",
     password: "",
@@ -20,12 +21,10 @@ export default function RegisterPage({ database }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (form.password !== form.confirmPassword) {
-      alert("Konfirmasi password tidak cocok!");
-      return;
+      return alert("Konfirmasi password tidak cocok!");
     }
-    database(form);
-    alert("Pendaftaran berhasil!");
-
+    Create(form);
+    alert(resData.message);
     navigate("/login");
   };
 
@@ -169,6 +168,7 @@ export default function RegisterPage({ database }) {
             <button
               type="submit"
               className="btn w-100 mb-2"
+              // disabled={true}
               style={{ backgroundColor: "#3ECF4C", color: "#fff" }}
             >
               Daftar

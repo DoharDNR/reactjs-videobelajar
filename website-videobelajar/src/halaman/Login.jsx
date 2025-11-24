@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../component/HeaderNav";
+import { Read } from "../database/RestAPI";
 
-export default function Login({ database }) {
-  const [form, setForm] = useState([{ email: "", password: "" }]);
+export default function Login() {
+  const [form, setForm] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -11,11 +12,13 @@ export default function Login({ database }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (form.password !== database.password) {
-      alert("Password anda salah!");
-      return;
+
+    if (
+      form.email !== Read.login.email ||
+      form.password !== Read.login.password
+    ) {
+      return alert("Password atau Email anda salah!");
     }
-    console.log("Data Login:", form);
     alert("berhasil masuk!");
     navigate("/home");
   };

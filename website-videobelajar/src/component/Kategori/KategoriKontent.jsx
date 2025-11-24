@@ -1,7 +1,5 @@
-// import React, { useState, useRef, useEffect } from "react";
-import RatingStars from "../Beranda/StarRating";
 import FilterPage from "./FilterPage";
-import { videos } from "../../database/DaftarKonten";
+import { videos } from "../../database/DaftarKonten.js";
 import CardSale from "../CardSale";
 
 export default function KategoriKonten() {

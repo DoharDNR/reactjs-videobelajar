@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Beranda.css";
 import CardSale from "../CardSale";
-import { videos } from "../../database/DaftarKonten";
+import { videos } from "../../database/DaftarKonten.js";
 
 export default function BerandaContent() {
   const tabs = [

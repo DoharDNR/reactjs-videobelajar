@@ -1,6 +1,6 @@
 import iCertificate from "../assets/ModernCreativeGreenandYellowCompletionCertificate1.svg";
 import StarRating from "../component/Beranda/StarRating";
-import { videos } from "../database/DaftarKonten";
+import { videos } from "../database/DaftarKonten.js";
 
 export default function Certificate() {
   console.log(videos);

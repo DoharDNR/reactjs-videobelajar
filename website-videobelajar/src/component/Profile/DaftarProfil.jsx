@@ -1,18 +1,9 @@
 import { useState } from "react";
 import "./Profil.css";
 import profilImg from "./icon/profil.png";
+import { Read } from "../../database/RestAPI";
 
 export default function DaftarProfil() {
-  const database = {
-    fullname: "dohar siregar",
-    email: "dohar@gmail.com",
-    gender: "Laki-Laki",
-    regionCode: "+62",
-    phone: "82281235972",
-    password: "123",
-    confirmPassword: "123",
-  };
-
   const [change, setChange] = useState({
     fullname: "dohar siregar",
     email: "dohar@gmail.com",
@@ -27,7 +18,7 @@ export default function DaftarProfil() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    database.fullname = change.fullname;
+    Read.login.fullname = change.fullname;
     console.log(database);
     alert("Perubahan berhasil!");
   };
@@ -36,8 +27,8 @@ export default function DaftarProfil() {
       <div className="d-flex gap-3">
         <img src={profilImg} alt="" style={{ width: "90px", height: "90px" }} />
         <div>
-          <h4 className="m-0">{database.fullname}</h4>
-          <p className=" m-0">{database.email}</p>
+          <h4 className="m-0">{Read.login.fullname}</h4>
+          <p className=" m-0">{Read.login.email}</p>
           <button
             className="border-0 bg-transparent fw-bold p-0"
             style={{ color: "#F64920" }}

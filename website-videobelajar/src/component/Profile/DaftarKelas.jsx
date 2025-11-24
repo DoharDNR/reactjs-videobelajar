@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { myCourse } from "../../database/DaftarKonten";
+import { myCourse } from "../../database/DaftarKonten.js";
 import "../Profile/Profil.css";
 import DaftarKelasList from "./DaftarKelasList";
 
