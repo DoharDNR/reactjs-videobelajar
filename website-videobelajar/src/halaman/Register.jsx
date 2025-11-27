@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../component/HeaderNav";
-import { Create, resData } from "../database/RestAPI.js";
+import { get, post } from "../database/RestAPI";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({
@@ -14,17 +14,34 @@ export default function RegisterPage() {
     confirmPassword: "",
   });
 
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    get("/users.json").then((res) => {
+      setUsers(res);
+    });
+  }, []);
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const getData = Object.keys(users).map((key) => ({
+      id: key,
+      ...users[key],
+    }));
+
+    const email = getData.find((item) => item.email === form.email);
+
     if (form.password !== form.confirmPassword) {
       return alert("Konfirmasi password tidak cocok!");
+    } else if (email) {
+      return alert("Email sudah ada, silahkan pakai email lain!");
     }
-    Create(form);
-    alert(resData.message);
+    post("/users.json", form);
+    alert("Register Berhasil");
     navigate("/login");
   };
 

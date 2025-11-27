@@ -1,28 +1,55 @@
-// export const reqData = { message: "tidak ada request" };
-export const resData = { message: "tidak ada respond" };
+// export const resData = { message: "tidak ada respond" };
 
-const Create = (data) => {
-  if (localStorage.getItem("email")) {
-    return (resData.message = "Akun Sudah Ada, Silahkan Login!!!");
-  }
+// const Create = (data) => {
+//   if (localStorage.getItem("email")) {
+//     return (resData.message = "Akun Sudah Ada, Silahkan Login!!!");
+//   }
 
-  console.log("data masuk ke server", data);
-  localStorage.setItem("email", data.email);
-  localStorage.setItem("nama", data.fullname);
-  localStorage.setItem("password", data.password);
-  resData.message = "Register Berhasil !!!";
-};
-
-const Read = {
-  login: {
-    email: localStorage.getItem("email"),
-    fullname: localStorage.getItem("nama"),
-    password: localStorage.getItem("password"),
-  },
-};
-
-// export const tryRegister = (reqData) => {
-//   console.log("request masuk", reqData);
+//   console.log("data masuk ke server", data);
+//   localStorage.setItem("email", data.email);
+//   localStorage.setItem("nama", data.fullname);
+//   localStorage.setItem("password", data.password);
+//   resData.message = "Register Berhasil !!!";
 // };
 
-export { Create, Read };
+// const Read = {
+//   login: {
+//     email: localStorage.getItem("email"),
+//     fullname: localStorage.getItem("nama"),
+//     password: localStorage.getItem("password"),
+//   },
+// };
+
+// export { Create, Read };
+
+import axios from "axios";
+
+const BASE_URL =
+  "https://videobelajardb-default-rtdb.asia-southeast1.firebasedatabase.app/";
+
+const axiosInstance = axios.create({
+  baseURL: BASE_URL,
+  headers: { "Content-Type": "application/json" },
+});
+
+export const post = async (url, body) => {
+  try {
+    const { data } = await axiosInstance.post(url, body);
+    return data;
+  } catch (err) {
+    console.error("Error", err);
+    throw err;
+  }
+};
+
+export const get = async (url) => {
+  try {
+    const { data } = await axiosInstance.get(url);
+    return data;
+  } catch (err) {
+    console.error("Error", err);
+    throw err;
+  }
+};
+
+export default axiosInstance;

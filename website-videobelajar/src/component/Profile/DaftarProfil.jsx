@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Profil.css";
 import profilImg from "./icon/profil.png";
-import { Read } from "../../database/RestAPI";
 
 export default function DaftarProfil() {
   const [change, setChange] = useState({
