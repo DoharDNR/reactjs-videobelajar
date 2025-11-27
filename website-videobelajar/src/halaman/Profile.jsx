@@ -7,7 +7,7 @@ import HeaderNav from "../component/HeaderNav";
 import Footer from "../component/Footer";
 
 export default function Profil() {
-  const [selectedComponent, setSelectedComponent] = useState("pesanan");
+  const [selectedComponent, setSelectedComponent] = useState("profil");
 
   const renderComponent = () => {
     switch (selectedComponent) {

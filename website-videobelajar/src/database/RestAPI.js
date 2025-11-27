@@ -52,4 +52,15 @@ export const get = async (url) => {
   }
 };
 
+export const put = async (url, body) => {
+  try {
+    const { data } = await axiosInstance.put(url, body);
+    console.log(data);
+    return data;
+  } catch (err) {
+    console.error("Error:", err);
+    throw err;
+  }
+};
+
 export default axiosInstance;

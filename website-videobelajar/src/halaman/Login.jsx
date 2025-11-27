@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "../component/HeaderNav";
 import { get } from "../database/RestAPI";
+import { useAuthStore } from "../authStore";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [users, setUsers] = useState([]);
+  const login = useAuthStore((state) => state.login);
+
   useEffect(() => {
     get("/users.json").then((res) => {
       setUsers(res);
@@ -16,9 +19,10 @@ export default function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const getData = Object.keys(users).map((key) => ({
       id: key,
       ...users[key],
@@ -30,12 +34,10 @@ export default function Login() {
     if (!email || !password) {
       return alert("Password atau Email anda salah!");
     }
-
+    login(email.id);
     alert("berhasil masuk!");
-    // navigate("/home");
+    navigate("/");
   };
-
-  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();

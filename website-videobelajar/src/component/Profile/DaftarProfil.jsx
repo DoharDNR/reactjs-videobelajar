@@ -1,24 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Profil.css";
 import profilImg from "./icon/profil.png";
+import { get, put } from "../../database/RestAPI";
 
 export default function DaftarProfil() {
   const [change, setChange] = useState({
-    fullname: "dohar siregar",
-    email: "dohar@gmail.com",
-    gender: "Laki-Laki",
+    fullname: "",
+    email: "",
+    gender: "perempuan",
     regionCode: "+62",
-    phone: "82281235972",
-    password: "123",
-    confirmPassword: "123",
+    phone: "",
+    password: "",
+    confirmPassword: "",
   });
+
+  const result = {
+    fullname: change.fullname,
+    email: change.email,
+    gender: change.gender,
+    regionCode: change.regionCode,
+    phone: change.phone,
+    password: change.password,
+  };
+
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    get("/users.json").then((res) => {
+      setUsers(res);
+    });
+  }, []);
+
+  const getData = Object.keys(users).map((key) => ({
+    id: key,
+    ...users[key],
+  }));
+
+  const name = getData.find(
+    (item) => item.id === localStorage.getItem("token")
+  );
+
+  if (!name) {
+    return;
+  }
+
   const handleChange = (e) => {
     setChange({ ...change, [e.target.id]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    Read.login.fullname = change.fullname;
-    console.log(database);
+    put("/users/" + name.id + ".json", result);
     alert("Perubahan berhasil!");
   };
   return (
@@ -26,8 +56,8 @@ export default function DaftarProfil() {
       <div className="d-flex gap-3">
         <img src={profilImg} alt="" style={{ width: "90px", height: "90px" }} />
         <div>
-          <h4 className="m-0">{Read.login.fullname}</h4>
-          <p className=" m-0">{Read.login.email}</p>
+          <h4 className="m-0">{name.fullname}</h4>
+          <p className=" m-0">{name.email}</p>
           <button
             className="border-0 bg-transparent fw-bold p-0"
             style={{ color: "#F64920" }}
@@ -69,14 +99,14 @@ export default function DaftarProfil() {
 
           <div className="profil-input-field">
             <select
-              id="option"
+              id="gender"
               className="profil-form-input"
               value={change.gender}
               onChange={handleChange}
               required
             >
-              <option value="0">Perempuan</option>
-              <option value="1">Laki-laki</option>
+              <option value="perempuan">Perempuan</option>
+              <option value="laki-laki">Laki-laki</option>
             </select>
             <label htmlFor="option" className="profil-form-label">
               Jenis Kelamin
@@ -87,12 +117,13 @@ export default function DaftarProfil() {
             <div className="profil-input-field w-50">
               <select
                 className="profil-form-input"
+                id="regionCode"
                 value={change.regionCode}
                 onChange={handleChange}
                 required
               >
-                <option value="0">+62</option>
-                <option value="1">+08</option>
+                <option value="+62">+62</option>
+                <option value="+08">+08</option>
               </select>
             </div>
 
@@ -128,7 +159,7 @@ export default function DaftarProfil() {
           <div className="profil-input-field">
             <input
               type="password"
-              id="confirm-password"
+              id="confirmPassword"
               className="profil-form-input"
               value={change.confirmPassword}
               onChange={handleChange}
