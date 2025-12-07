@@ -1,12 +1,14 @@
 import StarRating from "./Beranda/StarRating";
 import "./CardSale.css";
+import imgBanner from "../assets/img-resource/banner-produk1.jpg"
+import iconMentor from "../assets/img-resource/customer1.png"
 
 const CardSale = ({ video }) => {
   return (
     <div className="card shadow-sm border-1 p-3 gap-3 m-0">
       <div className="card-sale gap-3">
         <img
-          src={video.banner}
+          src={imgBanner}
           alt={video.title}
           className="card-img"
           style={{ objectFit: "cover" }}
@@ -19,10 +21,10 @@ const CardSale = ({ video }) => {
           </p>
           <div className="card-sale-mentor">
             <img
-              src={video.img}
+              src={iconMentor}
               alt={video.instructor}
               className="rounded-2 me-2"
-              style={{ width: "45px" }}
+              style={{ width: "45px", height:"45px" }}
             />
             <div>
               <p className="mb-0 small fw-semibold">{video.instructor}</p>

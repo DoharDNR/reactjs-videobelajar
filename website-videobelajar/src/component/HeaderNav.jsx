@@ -1,10 +1,10 @@
-import Avatar from "../assets/Avatar.svg";
-import Gambar from "../assets/videobelajar1.svg";
-import Metode from "../assets/Stepper-Metode.svg";
-import Bayar from "../assets/Stepper-Bayar.svg";
-import Done from "../assets/Stepper-Done.svg";
-import { useState } from "react";
-import "./HeaderNav.css";
+// import Avatar from "../assets/Avatar.svg";
+// import Gambar from "./videobelajar1.svg";
+// import Metode from "../assets/Stepper-Metode.svg";
+// import Bayar from "../assets/Stepper-Bayar.svg";
+// import Done from "../assets/Stepper-Done.svg";
+// import { useState } from "react";
+// import "./HeaderNav.css";
 
 const HeaderNav = ({ color, logout, isPayment, step }) => {
   const [openMenu, setOpenMenu] = useState(false);

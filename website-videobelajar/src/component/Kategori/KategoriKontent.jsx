@@ -1,8 +1,20 @@
 import FilterPage from "./FilterPage";
 import { videos } from "../../database/DaftarKonten.js";
 import CardSale from "../CardSale";
+import { useState,useEffect } from "react";
+import { get } from "../../database/RestAPI.js";
 
 export default function KategoriKonten() {
+  const [data, setData] = useState([]);
+    useEffect(() => {
+      get("/product.json")
+        .then((product) =>
+          setData(
+            Object.keys(product).map((keys) => ({ id: keys, ...product[keys] }))
+          )
+        )
+        .catch((err) => console.log(err));
+    }, []);
   return (
     <section className="container p-3">
       <h4 className="fw-bold mb-1">Koleksi Video Pembelajaran Unggulan</h4>
@@ -82,7 +94,7 @@ export default function KategoriKonten() {
             </div>
           </div>
           <div className="row">
-            {videos.map((video) => (
+            {data.map((video) => (
               <div key={video.id} className="col-sm-6 pb-4">
                 <CardSale video={video} />
               </div>

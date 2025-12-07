@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../component/HeaderNav";
 import { get } from "../database/RestAPI";
 import { useAuthStore } from "../authStore";
+import Gambar from "../assets/videobelajar1.svg"
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -52,7 +52,13 @@ export default function Login() {
 
   return (
     <>
-      <Header logout="none" />
+      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm w-100">
+        <div className="container-fluid p-3 px-3" style={{ width: "87%" }}>
+          <a href="#" className="navbar-brand px-1">
+            <img src={Gambar} alt="" />
+          </a>
+        </div>
+      </nav>
       <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center">
         <div
           className="card shadow-sm p-4 card-mobile"

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Beranda.css";
 import CardSale from "../CardSale";
-import { videos } from "../../database/DaftarKonten.js";
+import { get } from "../../database/RestAPI.js";
 
 export default function BerandaContent() {
   const tabs = [
@@ -15,10 +15,21 @@ export default function BerandaContent() {
   const [lineAnimate, setLineAnimate] = useState({});
   const tabRefs = useRef([]);
 
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    get("/product.json")
+      .then((product) =>
+        setData(
+          Object.keys(product).map((keys) => ({ id: keys, ...product[keys] }))
+        )
+      )
+      .catch((err) => console.log(err));
+  }, []);
+
   const filteredVideos =
     activeTab === "Semua Kelas"
-      ? videos
-      : videos.filter((v) => v.category === activeTab);
+      ? data
+      : data.filter((v) => v.category === activeTab);
 
   useEffect(() => {
     const activeIndex = tabs.indexOf(activeTab);
