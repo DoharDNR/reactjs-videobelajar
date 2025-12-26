@@ -33,6 +33,7 @@ const BankTransfer = [
     nameBank: "Bank Mandiri",
   },
 ];
+
 const EWallet = [
   { iconBank: "/src/assets/iconPayment/DANA-icon.png", nameBank: "Dana" },
   { iconBank: "/src/assets/iconPayment/OVO-icon.png", nameBank: "OVO" },
@@ -237,4 +238,5 @@ const myCourse = [
 
 //Database-Line
 
-export { videos, transaction, myCourse, BankTransfer, EWallet };
+// export { videos, transaction, myCourse, BankTransfer, EWallet };
+export { BankTransfer, EWallet };

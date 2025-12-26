@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Beranda.css";
-import CardSale from "../CardSale";
-import { get } from "../../database/RestAPI.js";
+import CardSale from "../../component/CardSale.jsx";
+import { AUTH_URL, get } from "../../database/RestAPI.js";
 
 export default function BerandaContent() {
   const tabs = [
@@ -16,14 +16,18 @@ export default function BerandaContent() {
   const tabRefs = useRef([]);
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    get("/product.json")
+    setLoading(true);
+    get("/product.json?auth=" + AUTH_URL)
       .then((product) =>
         setData(
           Object.keys(product).map((keys) => ({ id: keys, ...product[keys] }))
         )
       )
-      .catch((err) => console.log(err));
+      .catch((err) => setError(err))
+      .finally(() => setLoading(false));
   }, []);
 
   const filteredVideos =
@@ -39,6 +43,9 @@ export default function BerandaContent() {
       setLineAnimate({ left: offsetLeft, width: offsetWidth });
     }
   }, [activeTab]);
+
+  if (loading) return <p>Loading ...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <section className="container mb-5">

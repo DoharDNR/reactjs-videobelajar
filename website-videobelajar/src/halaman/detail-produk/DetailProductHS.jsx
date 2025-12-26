@@ -1,5 +1,5 @@
 import Banner from "../../assets/banner.jpg";
-import RatingStars from "../Beranda/StarRating";
+import RatingStars from "../../component/StarRating";
 
 export default function HeroSection() {
   return (

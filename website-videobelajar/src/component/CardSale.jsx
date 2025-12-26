@@ -1,11 +1,14 @@
-import StarRating from "./Beranda/StarRating";
+import StarRating from "./StarRating";
 import "./CardSale.css";
-import imgBanner from "../assets/img-resource/banner-produk1.jpg"
-import iconMentor from "../assets/img-resource/customer1.png"
+import imgBanner from "../assets/img-resource/banner-produk1.jpg";
+import iconMentor from "../assets/img-resource/customer1.png";
 
 const CardSale = ({ video }) => {
   return (
-    <div className="card shadow-sm border-1 p-3 gap-3 m-0">
+    <a
+      href={"/product/" + video.id}
+      className="card shadow-sm border-1 p-3 gap-3 m-0"
+    >
       <div className="card-sale gap-3">
         <img
           src={imgBanner}
@@ -24,7 +27,7 @@ const CardSale = ({ video }) => {
               src={iconMentor}
               alt={video.instructor}
               className="rounded-2 me-2"
-              style={{ width: "45px", height:"45px" }}
+              style={{ width: "45px", height: "45px" }}
             />
             <div>
               <p className="mb-0 small fw-semibold">{video.instructor}</p>
@@ -40,9 +43,11 @@ const CardSale = ({ video }) => {
           <span className="text-muted small">{video.rating}</span>
           <span className="text-muted small">{"(86)"}</span>
         </div>
-        <span className="fw-bold text-success-update">{video.price}</span>
+        <span className="fw-bold text-success-update">
+          Rp.{video.price / 1000}K
+        </span>
       </div>
-    </div>
+    </a>
   );
 };
 

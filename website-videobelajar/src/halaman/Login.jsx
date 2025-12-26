@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { get } from "../database/RestAPI";
 import { useAuthStore } from "../authStore";
-import Gambar from "../assets/videobelajar1.svg"
+import Gambar from "../assets/videobelajar1.svg";
 
 export default function Login() {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({
+    email: "dohar@gmail.com",
+    password: "123",
+  });
   const [users, setUsers] = useState([]);
   const login = useAuthStore((state) => state.login);
 
