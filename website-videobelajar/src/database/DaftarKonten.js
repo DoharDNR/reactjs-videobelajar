@@ -239,3 +239,4 @@ const myCourse = [
 //Database-Line
 
 // export { videos, transaction, myCourse, BankTransfer, EWallet };
+export { BankTransfer, EWallet };

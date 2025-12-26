@@ -1,6 +1,5 @@
 import HeroSection from "./DetailProductHS.jsx";
 import "./DetailProduct.css";
-import { videos } from "../../database/DaftarKonten.js";
 import HeaderNav from "../../component/HeaderNav.jsx";
 import Footer from "../../component/Footer.jsx";
 import DetailProductCard from "../../component/DetailProductCard.jsx";
