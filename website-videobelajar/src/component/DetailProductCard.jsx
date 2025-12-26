@@ -1,15 +1,18 @@
-export default function DetailProductCard() {
+import { useNavigate } from "react-router-dom";
+
+export default function DetailProductCard({ id, title, price }) {
+  const navigation = useNavigate();
+  const handleBuy = () => {
+    navigation("/payment-method/" + id);
+  };
   return (
     <div className="card gap-3 p-4 h-100">
       <div className="w-100">
-        <h5>
-          Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product
-          Manager.
-        </h5>
+        <h5>{title}</h5>
         <div className="d-flex justify-content-between">
           <div className="d-flex align-items-center gap-3">
             <h5 className="fw-bold" style={{ color: "#3ECF4C" }}>
-              Rp 250K
+              Rp.{price / 1000}K
             </h5>
             <h6 className="text-muted text-decoration-line-through opacity-50">
               Rp 500K
@@ -24,6 +27,7 @@ export default function DetailProductCard() {
       <button
         className="btn"
         style={{ backgroundColor: "#3ECF4C", color: "#fff" }}
+        onClick={handleBuy}
       >
         Beli Sekarang
       </button>

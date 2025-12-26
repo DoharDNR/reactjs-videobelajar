@@ -1,20 +1,19 @@
 import FilterPage from "./FilterPage";
-import { videos } from "../../database/DaftarKonten.js";
 import CardSale from "../CardSale";
-import { useState,useEffect } from "react";
-import { get } from "../../database/RestAPI.js";
+import { useState, useEffect } from "react";
+import { AUTH_URL, get } from "../../database/RestAPI.js";
 
 export default function KategoriKonten() {
   const [data, setData] = useState([]);
-    useEffect(() => {
-      get("/product.json")
-        .then((product) =>
-          setData(
-            Object.keys(product).map((keys) => ({ id: keys, ...product[keys] }))
-          )
+  useEffect(() => {
+    get("/product.json?auth=" + AUTH_URL)
+      .then((product) =>
+        setData(
+          Object.keys(product).map((keys) => ({ id: keys, ...product[keys] }))
         )
-        .catch((err) => console.log(err));
-    }, []);
+      )
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <section className="container p-3">
       <h4 className="fw-bold mb-1">Koleksi Video Pembelajaran Unggulan</h4>

@@ -24,8 +24,8 @@
 
 import axios from "axios";
 
-const BASE_URL =
-  "https://videobelajardb-default-rtdb.asia-southeast1.firebasedatabase.app/";
+const BASE_URL = import.meta.env.VITE_API_URL;
+export const AUTH_URL = import.meta.env.VITE_API_AUTH;
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,

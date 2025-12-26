@@ -1,13 +1,16 @@
-import HeroSection from "../component/DetailProduct/DetailProductHS";
-import "../component/DetailProduct/DetailProduct.css";
-import { videos } from "../database/DaftarKonten.js";
-import HeaderNav from "../component/HeaderNav";
-import Footer from "../component/Footer";
-import DetailProductCard from "../component/DetailProductCard";
-import DetailProductMentor from "../component/DetailProduct/DetailProductMentor";
-import DetailProductList from "../component/DetailProduct/DetailProductList";
-import DetailProductReview from "../component/DetailProduct/DetailProductReview";
-import CardSale from "../component/CardSale";
+import HeroSection from "./DetailProductHS.jsx";
+import "./DetailProduct.css";
+import { videos } from "../../database/DaftarKonten.js";
+import HeaderNav from "../../component/HeaderNav.jsx";
+import Footer from "../../component/Footer.jsx";
+import DetailProductCard from "../../component/DetailProductCard.jsx";
+import DetailProductMentor from "./DetailProductMentor.jsx";
+import DetailProductList from "./DetailProductList.jsx";
+import DetailProductReview from "./DetailProductReview.jsx";
+import CardSale from "../../component/CardSale.jsx";
+import { useEffect, useState } from "react";
+import { AUTH_URL, get } from "../../database/RestAPI.js";
+import { useParams } from "react-router-dom";
 
 export default function DetailProduct() {
   const reviewContent = [
@@ -30,6 +33,27 @@ export default function DetailProduct() {
         "Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.",
     },
   ];
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    get("/product.json?auth=" + AUTH_URL)
+      .then((product) =>
+        setData(
+          Object.keys(product).map((keys) => ({ id: keys, ...product[keys] }))
+        )
+      )
+      .catch((err) => setError(err))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const info = data.find((items) => items.id === id);
+
+  if (loading) return <p>Loading ...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <>
@@ -41,35 +65,31 @@ export default function DetailProduct() {
           </a>
           <span>/</span>
           <a href="#" className="text-muted text-decoration-none">
-            Desain
+            {info ? info.category : "Loading ..."}
           </a>
           <span>/</span>
           <div className="text-wrap-update">
-            Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product
-            Manager.
+            {info ? info.title : "Loading ..."}
           </div>
         </div>
         <HeroSection />
 
         <div className="detail-product-mobile">
-          <DetailProductCard />
+          {info ? (
+            <DetailProductCard
+              id={info.id}
+              title={info.title}
+              price={info.price}
+            />
+          ) : (
+            "Loading Card ..."
+          )}
 
           <div className="row gap-4 w-100 m-auto">
             <div className="card p-4">
               <h5 className="fw-bold">Deskripsi</h5>
               <p className="fs-6 text-muted">
-                Foundations of User Experience (UX) Design adalah yang pertama
-                dari rangkaian tujuh kursus yang akan membekali Anda dengan
-                keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat
-                pemula dalam desain pengalaman pengguna. Desainer UX fokus pada
-                interaksi yang dilakukan orang dengan produk seperti situs web,
-                aplikasi seluler, dan objek fisik. Desainer UX membuat interaksi
-                sehari-hari itu dapat digunakan, menyenangkan, dan dapat
-                diakses. Peran seorang desainer UX tingkat pemula mungkin
-                termasuk berempati dengan pengguna, menentukan poin rasa sakit
-                mereka, memunculkan ide untuk solusi desain, membuat wireframe,
-                prototipe, dan maket, dan menguji desain untuk mendapatkan umpan
-                balik.
+                {info ? info.describe : "Loading ..."}
               </p>
             </div>
             <DetailProductMentor reviewContent={reviewContent} />
@@ -84,7 +104,7 @@ export default function DetailProduct() {
             Ekspansi Pengetahuan Anda dengan Rekomendasi Spesial Kami!
           </p>
           <div className="row g-4">
-            {videos.slice(0, 3).map((video) => (
+            {data.slice(0, 3).map((video) => (
               <div key={video.id} className="col-12 col-md-6 col-lg-4">
                 <CardSale video={video} />
               </div>

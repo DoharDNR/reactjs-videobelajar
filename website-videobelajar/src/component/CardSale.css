@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .card-sale {
   display: flex;
   flex-direction: column;
