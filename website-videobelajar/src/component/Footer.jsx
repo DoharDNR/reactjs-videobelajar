@@ -1,13 +1,10 @@
 import Gambar from "../assets/videobelajar1.svg";
-// import Icon from "../assets/iconSosmed/Icon-LinkedIn.svg";
+import LinkedIn from "../assets/iconSosmed/Icon-LinkedIn.svg";
+import Facebook from "../assets/iconSosmed/Icon-Facebook.svg";
+import Instagram from "../assets/iconSosmed/Icon-Instagram.svg";
+import Twitter from "../assets/iconSosmed/Icon-Twitter.svg";
 
 export default function Footer() {
-  const icon = [
-    "/src/assets/iconSosmed/Icon-LinkedIn.svg",
-    "/src/assets/iconSosmed/Icon-Facebook.svg",
-    "/src/assets/iconSosmed/Icon-Instagram.svg",
-    "/src/assets/iconSosmed/Icon-Twitter.svg",
-  ];
   const SosialMedia = (e) => {
     switch (e) {
       case "linkedin":
@@ -75,25 +72,25 @@ export default function Footer() {
             className="border-0 bg-transparent"
             onClick={() => SosialMedia("linkedin")}
           >
-            <img src={icon[0]} />
+            <img src={LinkedIn} />
           </button>
           <button
             className="border-0 bg-transparent"
             onClick={() => SosialMedia("facebook")}
           >
-            <img src={icon[1]} />
+            <img src={Facebook} />
           </button>
           <button
             className="border-0 bg-transparent"
             onClick={() => SosialMedia("instagram")}
           >
-            <img src={icon[2]} />
+            <img src={Instagram} />
           </button>
           <button
             className="border-0 bg-transparent"
             onClick={() => SosialMedia("twitter")}
           >
-            <img src={icon[3]} />
+            <img src={Twitter} />
           </button>
         </div>
       </div>

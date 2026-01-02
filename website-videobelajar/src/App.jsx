@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import Beranda from "./halaman/beranda/Beranda";
 import Login from "./halaman/Login";
 import Register from "./halaman/Register";
@@ -27,12 +33,12 @@ function App() {
   ];
 
   const RouteAdmin = (children) => {
-    if(!localStorage.getItem('admin')){
-      return <Navigate to={"/"} replace />
+    if (!localStorage.getItem("admin")) {
+      return <Navigate to={"/"} replace />;
     }
 
-    return children
-  }
+    return children;
+  };
 
   return (
     <Router>

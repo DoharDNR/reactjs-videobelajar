@@ -7,7 +7,6 @@ import { BankTransfer, EWallet } from "../database/DaftarKonten.js";
 import Metode from "../assets/Stepper-Metode.svg";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { get } from "../database/RestAPI.js";
 
 export default function PaymentMethod() {
   const { id } = useParams();

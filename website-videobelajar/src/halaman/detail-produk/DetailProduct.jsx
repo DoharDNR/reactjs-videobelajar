@@ -8,14 +8,15 @@ import DetailProductList from "./DetailProductList.jsx";
 import DetailProductReview from "./DetailProductReview.jsx";
 import CardSale from "../../component/CardSale.jsx";
 import { useEffect, useState } from "react";
-import { AUTH_URL, get } from "../../database/RestAPI.js";
 import { useParams } from "react-router-dom";
+
+import Mentor from "../../assets/img-resource/customer2.png";
 
 export default function DetailProduct() {
   const reviewContent = [
     {
       id: 1,
-      img: "/src/assets/img-resource/customer8.png",
+      img: Mentor,
       nameUser: "Gregorius Edrik Lawanto",
       role: "Senior Talent Acquisition",
       company: "WingsGroup",
@@ -24,7 +25,7 @@ export default function DetailProduct() {
     },
     {
       id: 2,
-      img: "/src/assets/img-resource/customer8.png",
+      img: Mentor,
       nameUser: "Gregorius Edrik Lawanto",
       role: "Senior Talent Acquisition",
       company: "WingsGroup",
@@ -93,7 +94,7 @@ export default function DetailProduct() {
             </div>
             <DetailProductMentor reviewContent={reviewContent} />
             <DetailProductList />
-            <DetailProductReview reviewContent={reviewContent} />
+            <DetailProductReview reviewContent={reviewContent} score={3} />
           </div>
         </div>
 

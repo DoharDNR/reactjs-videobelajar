@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { get } from "../database/RestAPI";
-import { useAuthStore } from "../authStore";
 import Gambar from "../assets/videobelajar1.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../features/users/userThunks";
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const { data, isLoading, error } = useSelector((state) => state.users);
   const [form, setForm] = useState({
     email: "dohar@gmail.com",
     password: "123",
   });
-  const [users, setUsers] = useState([]);
-  const login = useAuthStore((state) => state.login);
 
   useEffect(() => {
-    get("/users.json").then((res) => {
-      setUsers(res);
-    });
-  }, []);
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -26,20 +24,16 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const getData = Object.keys(users).map((key) => ({
-      id: key,
-      ...users[key],
-    }));
 
-    const email = getData.find((item) => item.email === form.email);
-    const password = getData.find((item) => item.password === form.password);
+    const email = data.find((item) => item.email === form.email);
+    const password = data.find((item) => item.password === form.password);
 
     if (!email || !password) {
       return alert("Password atau Email anda salah!");
     }
-    login(email.id);
+
     alert("berhasil masuk!");
-    navigate("/");
+    // navigate("/");
   };
 
   const handleRegister = (e) => {

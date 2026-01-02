@@ -1,4 +1,6 @@
-const DetailProductReview = ({ reviewContent }) => {
+import StarRating from "../../component/StarRating";
+
+const DetailProductReview = ({ reviewContent, score }) => {
   return (
     <div className="card p-4">
       <h5 className="fw-bold mb-4">Rating dan Review</h5>
@@ -21,6 +23,11 @@ const DetailProductReview = ({ reviewContent }) => {
                 </div>
               </div>
               <p>{review.describe}</p>
+              <div className="d-flex gap-2 align-items-center">
+                <StarRating score={score} />
+                <span className="text-gray">{score}</span>
+                <span className="text-gray">{"(86)"}</span>
+              </div>
             </div>
           </div>
         ))}

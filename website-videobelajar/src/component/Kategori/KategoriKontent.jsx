@@ -1,7 +1,6 @@
 import FilterPage from "./FilterPage";
 import CardSale from "../CardSale";
 import { useState, useEffect } from "react";
-import { AUTH_URL, get } from "../../database/RestAPI.js";
 
 export default function KategoriKonten() {
   const [data, setData] = useState([]);

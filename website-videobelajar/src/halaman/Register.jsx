@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../component/HeaderNav";
-import { get, post } from "../database/RestAPI";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({
