@@ -6,22 +6,26 @@ import PaymentMethodList from "../component/PaymentMethod/PaymentMethodList";
 import { BankTransfer, EWallet } from "../database/DaftarKonten.js";
 import Metode from "../assets/Stepper-Metode.svg";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProduct } from "../features/product/productThunks.js";
 
 export default function PaymentMethod() {
   const { id } = useParams();
-  const [data, setData] = useState([]);
+
+  const dispatch = useDispatch();
+  const { data, isLoading, error } = useSelector((state) => state.product);
   useEffect(() => {
-    get("/product.json")
-      .then((product) => {
-        const getItems = Object.keys(product).map((keys) => ({
-          id: keys,
-          ...product[keys],
-        }));
-        setData(getItems.find((items) => items.id === id));
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    dispatch(fetchProduct());
+  }, [dispatch]);
+
+  const info = data.find((items) => items.id === id);
+
+  if (isLoading) {
+    <p>Loading ...</p>;
+  }
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <>
       <HeaderNav logout={"none"} isPayment={"block"} step={0} />
@@ -29,9 +33,9 @@ export default function PaymentMethod() {
         <img src={Metode} alt="" className="payment-method-show" />
         <div className="detail-product-mobile">
           <DetailProductCard
-            id={data.id}
-            title={data.title}
-            price={data.price}
+            id={info.id}
+            title={info.title}
+            price={info.price}
           />
 
           <div className="w-100 row g-3 mx-auto">

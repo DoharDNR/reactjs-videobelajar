@@ -14,15 +14,17 @@ export default function RegisterPage() {
   });
 
   const [users, setUsers] = useState([]);
-  useEffect(() => {
-    get("/users.json").then((res) => {
-      setUsers(res);
-    });
-  }, []);
+  // useEffect(() => {
+  //   get("/users.json").then((res) => {
+  //     setUsers(res);
+  //   });
+  // }, []);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,10 +43,8 @@ export default function RegisterPage() {
     }
     post("/users.json", form);
     alert("Register Berhasil");
-    navigate("/login");
+    // navigate("/login");
   };
-
-  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();

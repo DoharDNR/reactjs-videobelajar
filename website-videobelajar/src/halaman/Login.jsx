@@ -3,24 +3,37 @@ import { useNavigate } from "react-router-dom";
 import Gambar from "../assets/videobelajar1.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../features/users/userThunks";
+import { useAuth } from "../utils/auth-context";
 
 export default function Login() {
-  const dispatch = useDispatch();
-  const { data, isLoading, error } = useSelector((state) => state.users);
   const [form, setForm] = useState({
     email: "dohar@gmail.com",
     password: "123",
   });
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+  const dispatch = useDispatch();
+  const { data, isLoading, error } = useSelector((state) => state.users);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
   const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    console.log("register");
+    navigate("/register");
+  };
+
+  const handleGoogle = (e) => {
+    e.preventDefault();
+    alert("login with Google Account!!!");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,19 +46,12 @@ export default function Login() {
     }
 
     alert("berhasil masuk!");
-    // navigate("/");
+    login(form.email);
+    navigate("/", { replace: true });
   };
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    console.log("register");
-    navigate("/register");
-  };
-
-  const handleGoogle = (e) => {
-    e.preventDefault();
-    alert("login with Google Account!!!");
-  };
+  if (isLoading) return <h1>Loading...</h1>;
+  if (error) return <h1>Error: {error}</h1>;
 
   return (
     <>

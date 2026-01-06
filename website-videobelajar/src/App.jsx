@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigate,
   Navigate,
 } from "react-router-dom";
 import Beranda from "./halaman/beranda/Beranda";
@@ -17,8 +16,9 @@ import PaymentMethod from "./halaman/PaymentMetode";
 // import Profil from "./halaman/Profile";
 // import Course from "./halaman/Course";
 // import Certificate from "./halaman/Certificate";
-import ProtectedRoute from "./ProtectedRoute";
 import ProfilAdmin from "./halaman/profil-admin/ProfilAdmin";
+import { AuthProvider } from "./utils/auth-context";
+import ProtectedRoute from "./utils/protected-route";
 
 function App() {
   const privateRoute = [
@@ -41,23 +41,25 @@ function App() {
   };
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Beranda />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/category" element={<Kategori />} />
-        <Route path="/product/:id" element={<DetailProduct />} />
-        {privateRoute.map(({ path, element }, i) => (
-          <Route
-            key={i}
-            path={path}
-            element={<ProtectedRoute>{element}</ProtectedRoute>}
-          />
-        ))}
-        <Route path="/admin" element={RouteAdmin(<ProfilAdmin />)} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Beranda />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/category" element={<Kategori />} />
+          <Route path="/product/:id" element={<DetailProduct />} />
+          {privateRoute.map(({ path, element }, i) => (
+            <Route
+              key={i}
+              path={path}
+              element={<ProtectedRoute>{element}</ProtectedRoute>}
+            />
+          ))}
+          <Route path="/admin" element={RouteAdmin(<ProfilAdmin />)} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

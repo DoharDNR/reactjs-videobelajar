@@ -1,10 +1,12 @@
 import { Navigate } from "react-router-dom";
+import { useAppSelector } from "./hooks/redux";
 
 export default function ProtectedRoute({ children }) {
-  // const token = useAuthStore((state) => state.token);
+  // const isAuth = useAppSelector((state) => state.auth.isAuthenticated);
 
   // Jika tidak punya token → kembalikan ke login
-  // if (!token) {
+  // if (!isAuth) {
+  //   console.log("protected route", isAuth);
   //   return <Navigate to="/login" replace />;
   // }
 
