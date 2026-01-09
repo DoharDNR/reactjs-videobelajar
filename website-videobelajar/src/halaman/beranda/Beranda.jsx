@@ -4,12 +4,12 @@ import Newsletter from "./Newsletter";
 import Footer from "../../component/Footer";
 import HeaderNav from "../../component/HeaderNav";
 
-export default function Beranda() {
+export default function Beranda({ data, isLoading, error }) {
   return (
     <>
       <HeaderNav />
       <HeroSection />
-      <BerandaContent />
+      <BerandaContent data={data} isLoading={isLoading} error={error} />
       <Newsletter />
       <Footer />
     </>

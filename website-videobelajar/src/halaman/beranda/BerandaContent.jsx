@@ -1,16 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Beranda.css";
 import CardSale from "../../component/CardSale.jsx";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProduct } from "../../features/product/productThunks.js";
 
-export default function BerandaContent() {
-  const dispatch = useDispatch();
-  const { data, isLoading, error } = useSelector((state) => state.product);
-  useEffect(() => {
-    dispatch(fetchProduct());
-  }, [dispatch]);
-
+export default function BerandaContent({ data, isLoading, error }) {
   const tabs = [
     "Semua Kelas",
     "Pemasaran",
@@ -21,8 +13,6 @@ export default function BerandaContent() {
   const [activeTab, setActiveTab] = useState("Semua Kelas");
   const [lineAnimate, setLineAnimate] = useState({});
   const tabRefs = useRef([]);
-
-  console.log("beranda", data);
 
   const filteredVideos =
     activeTab === "Semua Kelas"

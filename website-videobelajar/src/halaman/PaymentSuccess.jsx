@@ -1,7 +1,13 @@
 import HeaderNav from "../component/HeaderNav";
 import Done from "../assets/Stepper-Done.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function PaymentSuccess() {
+  const navigate = useNavigate();
+
+  const handleMove = () => {
+    navigate("/profil");
+  };
   return (
     <>
       <HeaderNav logout={"none"} isPayment={"block"} step={2} />
@@ -19,6 +25,7 @@ export default function PaymentSuccess() {
               <button
                 className="btn w-75"
                 style={{ backgroundColor: "#3ECF4C", color: "#fff" }}
+                onClick={handleMove}
               >
                 Lihat Detail Pesanan
               </button>

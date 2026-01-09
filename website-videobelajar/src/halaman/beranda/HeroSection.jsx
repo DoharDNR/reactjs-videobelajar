@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import Banner from "../../assets/banner.jpg";
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+
+  const handleMove = () => {
+    navigate("/category");
+  };
   return (
     <section className="container my-5">
       <div
@@ -33,6 +39,7 @@ export default function HeroSection() {
           <button
             className="btn btn-login px-4 py-2"
             style={{ backgroundColor: "#3ECF4C", color: "#fff" }}
+            onClick={handleMove}
           >
             Temukan Video Course untuk Dipelajari!
           </button>

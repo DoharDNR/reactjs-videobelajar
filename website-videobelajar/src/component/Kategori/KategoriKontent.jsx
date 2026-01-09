@@ -1,18 +1,19 @@
 import FilterPage from "./FilterPage";
 import CardSale from "../CardSale";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProduct } from "../../features/product/productThunks";
 
 export default function KategoriKonten() {
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  const { data, isLoading, error } = useSelector((state) => state.product);
   useEffect(() => {
-    get("/product.json?auth=" + AUTH_URL)
-      .then((product) =>
-        setData(
-          Object.keys(product).map((keys) => ({ id: keys, ...product[keys] }))
-        )
-      )
-      .catch((err) => console.log(err));
-  }, []);
+    dispatch(fetchProduct());
+  }, [dispatch]);
+
+  if (isLoading) return <h1>Loading ...</h1>;
+  if (error) return <h1>Error: {error}</h1>;
+
   return (
     <section className="container p-3">
       <h4 className="fw-bold mb-1">Koleksi Video Pembelajaran Unggulan</h4>

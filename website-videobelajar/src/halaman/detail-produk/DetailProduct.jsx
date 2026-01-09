@@ -7,14 +7,11 @@ import DetailProductMentor from "./DetailProductMentor.jsx";
 import DetailProductList from "./DetailProductList.jsx";
 import DetailProductReview from "./DetailProductReview.jsx";
 import CardSale from "../../component/CardSale.jsx";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Mentor from "../../assets/img-resource/customer2.png";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProduct } from "../../features/product/productThunks.js";
 
-export default function DetailProduct() {
+export default function DetailProduct({ data, isLoading, error }) {
   const reviewContent = [
     {
       id: 1,
@@ -37,14 +34,8 @@ export default function DetailProduct() {
   ];
   const { id } = useParams();
 
-  const dispatch = useDispatch();
-  const { data, isLoading, error } = useSelector((state) => state.product);
-
-  useEffect(() => {
-    dispatch(fetchProduct());
-  }, [dispatch]);
-
   const info = data.find((items) => items.id === id);
+  console.log("detailProduct", info);
 
   if (isLoading) return <p>Loading ...</p>;
   if (error) return <p>Error: {error}</p>;

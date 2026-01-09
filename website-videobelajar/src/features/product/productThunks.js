@@ -6,7 +6,6 @@ export const fetchProduct = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const data = await fetchProductApi();
-      console.log("productsThunks", data);
       return data
         ? Object.entries(data).map(([id, value]) => ({
             id,

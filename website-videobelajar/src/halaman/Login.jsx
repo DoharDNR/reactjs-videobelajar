@@ -50,7 +50,7 @@ export default function Login() {
     navigate("/", { replace: true });
   };
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading.fetch) return <h1>Loading...</h1>;
   if (error) return <h1>Error: {error}</h1>;
 
   return (

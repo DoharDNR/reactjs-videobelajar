@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { transaction } from "../../database/DaftarKonten.js";
 import "../Profile/Profil.css";
 import DaftarPesananList from "./DaftarPesananList";
 
@@ -8,6 +7,8 @@ export default function DaftarPesanan() {
   const [activeTab, setActiveTab] = useState("Semua Pesanan");
   const [lineAnimate, setLineAnimate] = useState({});
   const tabRefs = useRef([]);
+
+  const transaction = [];
 
   const filteredVideos =
     activeTab === "Semua Pesanan"

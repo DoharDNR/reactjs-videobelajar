@@ -1,9 +1,22 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Profil.css";
 import profilImg from "./icon/profil.png";
-import { get, put } from "../../database/RestAPI";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers, updateUser } from "../../features/users/userThunks";
 
 export default function DaftarProfil() {
+  const token = localStorage.getItem("token");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  const { data, isLoading, error } = useSelector((state) => state.users);
+
+  const item = React.useMemo(() => {
+    return data.find((u) => u.email === token);
+  }, [data, token]);
+
   const [change, setChange] = useState({
     fullname: "",
     email: "",
@@ -14,6 +27,28 @@ export default function DaftarProfil() {
     confirmPassword: "",
   });
 
+  useEffect(() => {
+    if (!item) return;
+    setChange((prev) => {
+      const next = {
+        ...prev,
+        fullname: item.fullname || "",
+        email: item.email || "",
+        phone: item.phone || "",
+      };
+
+      if (
+        prev.fullname === next.fullname &&
+        prev.email === next.email &&
+        prev.phone === next.phone
+      ) {
+        return prev;
+      }
+
+      return next;
+    });
+  }, [item]);
+
   const result = {
     fullname: change.fullname,
     email: change.email,
@@ -23,41 +58,26 @@ export default function DaftarProfil() {
     password: change.password,
   };
 
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    get("/users.json").then((res) => {
-      setUsers(res);
-    });
-  }, []);
-
-  const getData = Object.keys(users).map((key) => ({
-    id: key,
-    ...users[key],
-  }));
-
-  const name = getData.find(
-    (item) => item.id === localStorage.getItem("token")
-  );
-
-  if (!name) {
-    return;
-  }
-
   const handleChange = (e) => {
     setChange({ ...change, [e.target.id]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    put("/users/" + name.id + ".json", result);
+    const id = item.id;
+    dispatch(updateUser({ id, data: result }));
     alert("Perubahan berhasil!");
   };
+
+  if (isLoading.fetch) return <h1>Loading...</h1>;
+  if (error) return <h1>Error: {error}</h1>;
+
   return (
     <div className="card p-4 gap-2">
       <div className="d-flex gap-3">
         <img src={profilImg} alt="" style={{ width: "90px", height: "90px" }} />
         <div>
-          <h4 className="m-0">{name.fullname}</h4>
-          <p className=" m-0">{name.email}</p>
+          <h4 className="m-0">{!item ? "Loading..." : item.fullname}</h4>
+          <p className=" m-0">{!item ? "Loading..." : item.email}</p>
           <button
             className="border-0 bg-transparent fw-bold p-0"
             style={{ color: "#F64920" }}
@@ -175,8 +195,9 @@ export default function DaftarProfil() {
             type="submit"
             className="btn"
             style={{ backgroundColor: "#3ECF4C", color: "#fff" }}
+            disabled={isLoading.update}
           >
-            Simpan
+            {isLoading.update ? "Updating..." : "Simpan"}
           </button>
         </div>
       </form>

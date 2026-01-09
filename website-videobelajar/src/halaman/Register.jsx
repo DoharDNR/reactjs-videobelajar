@@ -1,8 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../component/HeaderNav";
+import { useDispatch, useSelector } from "react-redux";
+import { createUser, fetchUsers } from "../features/users/userThunks";
 
 export default function RegisterPage() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  const { data, isLoading, error } = useSelector((state) => state.users);
+
   const [form, setForm] = useState({
     fullname: "",
     email: "",
@@ -13,13 +22,6 @@ export default function RegisterPage() {
     confirmPassword: "",
   });
 
-  const [users, setUsers] = useState([]);
-  // useEffect(() => {
-  //   get("/users.json").then((res) => {
-  //     setUsers(res);
-  //   });
-  // }, []);
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -29,21 +31,17 @@ export default function RegisterPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const getData = Object.keys(users).map((key) => ({
-      id: key,
-      ...users[key],
-    }));
-
-    const email = getData.find((item) => item.email === form.email);
+    const email = data.find((item) => item.email === form.email);
 
     if (form.password !== form.confirmPassword) {
       return alert("Konfirmasi password tidak cocok!");
     } else if (email) {
       return alert("Email sudah ada, silahkan pakai email lain!");
     }
-    post("/users.json", form);
+
+    dispatch(createUser(form));
     alert("Register Berhasil");
-    // navigate("/login");
+    navigate("/login");
   };
 
   const handleLogin = (e) => {

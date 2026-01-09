@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { myCourse } from "../../database/DaftarKonten.js";
 import "../Profile/Profil.css";
 import DaftarKelasList from "./DaftarKelasList";
 
@@ -8,6 +7,8 @@ export default function DaftarKelas() {
   const [activeTab, setActiveTab] = useState("Semua Kelas");
   const [lineAnimate, setLineAnimate] = useState({});
   const tabRefs = useRef([]);
+
+  const myCourse = [];
 
   const filteredVideos =
     activeTab === "Semua Kelas"

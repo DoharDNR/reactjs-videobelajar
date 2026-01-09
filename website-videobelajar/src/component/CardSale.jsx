@@ -2,6 +2,7 @@ import StarRating from "./StarRating";
 import "./CardSale.css";
 import imgBanner from "../assets/img-resource/banner-produk1.jpg";
 import iconMentor from "../assets/img-resource/customer1.png";
+import { useNavigate } from "react-router-dom";
 
 const CardSale = ({ video }) => {
   return (

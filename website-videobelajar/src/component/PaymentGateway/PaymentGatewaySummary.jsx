@@ -1,4 +1,13 @@
-export default function PaymentGatewaySummary() {
+import { useNavigate } from "react-router-dom";
+
+export default function PaymentGatewaySummary({ id }) {
+  const navigate = useNavigate();
+  const handlePaymentChange = () => {
+    navigate("/payment-method/" + id);
+  };
+  const handlePaymentDone = () => {
+    navigate("/payment-done");
+  };
   return (
     <div className="card p-4">
       <h5 className="fw-bold mb-4">Metode Pembayaran</h5>
@@ -37,12 +46,14 @@ export default function PaymentGatewaySummary() {
         <button
           className="btn w-100"
           style={{ color: "#3ECF4C", borderColor: "#3ECF4C" }}
+          onClick={handlePaymentChange}
         >
           Ganti Metode Pembayaran
         </button>
         <button
           className="btn w-100"
           style={{ backgroundColor: "#3ECF4C", color: "#fff" }}
+          onClick={handlePaymentDone}
         >
           Beli Sekarang
         </button>
