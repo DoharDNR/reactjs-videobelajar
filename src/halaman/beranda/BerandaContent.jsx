@@ -31,6 +31,10 @@ export default function BerandaContent({ data, isLoading, error }) {
   if (isLoading) return <h1>Loading ...</h1>;
   if (error) return <h1>Error: {error}</h1>;
 
+  if (data.length > 0) {
+    console.log("Data Tersedia");
+  }
+
   return (
     <section className="container mb-5">
       <h4 className="fw-bold mb-1">Koleksi Video Pembelajaran Unggulan</h4>
