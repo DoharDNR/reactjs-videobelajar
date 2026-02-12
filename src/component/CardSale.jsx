@@ -1,0 +1,55 @@
+import StarRating from "./StarRating";
+import "./CardSale.css";
+import imgBanner from "../assets/img-resource/banner-produk1.jpg";
+import iconMentor from "../assets/img-resource/customer1.png";
+import { useNavigate } from "react-router-dom";
+
+const CardSale = ({ video }) => {
+  return (
+    <a
+      href={"/product/" + video.id}
+      className="card shadow-sm border-1 p-3 gap-3 m-0"
+    >
+      <div className="card-sale gap-3">
+        <img
+          src={imgBanner}
+          alt={video.title}
+          className="card-img"
+          style={{ objectFit: "cover" }}
+        />
+        <div className="card-sale-desc">
+          <h6 className="fw-bold">{video.title}</h6>
+          <p className="text-muted small card-sale-hidden">
+            Mulai transformasi dengan instruktur profesional, harga yang
+            terjangkau, dan...
+          </p>
+          <div className="card-sale-mentor">
+            <img
+              src={iconMentor}
+              alt={video.instructor}
+              className="rounded-2 me-2"
+              style={{ width: "45px", height: "45px" }}
+            />
+            <div>
+              <p className="mb-0 small fw-semibold">{video.instructor}</p>
+              <p className="text-muted small mb-0">{video.role}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="d-flex justify-content-between align-items-center">
+        <div className="d-flex gap-1 align-items-center">
+          <StarRating score={3} />
+          <span className="text-muted small">{video.rating}</span>
+          <span className="text-muted small">{"(86)"}</span>
+        </div>
+        <span className="fw-bold text-success-update">
+          Rp.{video.price / 1000}K
+        </span>
+      </div>
+    </a>
+  );
+};
+
+export default CardSale;
